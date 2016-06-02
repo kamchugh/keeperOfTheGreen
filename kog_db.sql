@@ -11,7 +11,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `kog_db` DEFAULT CHARACTER SET utf8 ;
 -- -----------------------------------------------------
 -- Schema kog_db
 -- -----------------------------------------------------
@@ -19,19 +19,19 @@ CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 -- -----------------------------------------------------
 -- Schema kog_db
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `kog_db` ;
-USE `mydb` ;
+
 
 -- -----------------------------------------------------
 -- Table `mydb`.`products`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`products` (
+CREATE TABLE IF NOT EXISTS `kog_db`.`products` (
   `product_id` INT NULL AUTO_INCREMENT,
   `title` VARCHAR(45) NULL,
   `price` DECIMAL(11) NULL,
   `category` VARCHAR(100) NULL,
   `description` VARCHAR(1000) NULL,
   `quantity` INT NULL,
+  `product_img` BLOB NULL, 
   PRIMARY KEY (`product_id`))
 ENGINE = InnoDB;
 
@@ -61,7 +61,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`cart`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`cart` (
+CREATE TABLE IF NOT EXISTS `kog_db`.`cart` (
   `cart_id` INT NULL AUTO_INCREMENT,
   `user_id` INT NULL,
   `cart_date` TIMESTAMP NULL DEFAULT current_timestamp,
@@ -78,7 +78,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`employee`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`employee` (
+CREATE TABLE IF NOT EXISTS `kog_db`.`employee` (
   `employee_id` INT NULL,
   `position` VARCHAR(100) NULL,
   `is_admin` TINYINT(1) NULL,
@@ -95,7 +95,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`cart_item`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`cart_item` (
+CREATE TABLE IF NOT EXISTS `kog_db`.`cart_item` (
   `cart_id` INT NULL,
   `product_id` INT NULL,
   `quantity` INT NULL,
@@ -117,7 +117,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`category`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`category` (
+CREATE TABLE IF NOT EXISTS `kog_db`.`category` (
   `cat_id` INT NULL AUTO_INCREMENT,
   `cat_name` VARCHAR(45) NULL,
   `description` VARCHAR(255) NULL,
@@ -128,7 +128,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`product_category`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`product_category` (
+CREATE TABLE IF NOT EXISTS `kog_db`.`product_category` (
   `product_id` INT NOT NULL,
   `cat_id` INT NOT NULL,
   PRIMARY KEY (`product_id`, `cat_id`),
