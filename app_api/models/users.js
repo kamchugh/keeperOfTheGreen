@@ -76,12 +76,13 @@ module.exports = function(sequalize, DataTypes) {
           type : DataTypes.STRING,
           allowNull : false,
           unique : false
-        }, {
-          classMethods: {
-            associate : function(models) {
-                User.hasMany(models.Cart)
-          }
-        }
+        },
+      },{
+        //   classMethods: {
+        //     associate : function(models) {
+        //         User.hasMany(models.Cart)
+        //   }
+        // }
     });
 
     return User;

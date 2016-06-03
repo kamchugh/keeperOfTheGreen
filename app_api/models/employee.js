@@ -1,7 +1,6 @@
 
 module.exports = function(sequelize, DataTypes) {
     var Employee = sequelize.define("employee", {
-        product_id : DataTypes.INT,
          position : DataTypes.STRING,
         is_admin : DataTypes.BOOLEAN
     },
