@@ -11,7 +11,7 @@ if (process.env.SECRET) {
 }
 
 
-var passportConfig = require('./config/passportConfig');
+// var passportConfig = require('./config/passportConfig');
 var bp = require('body-parser');
 var handlebars = require('express-handlebars');
 var port = process.env.PORT || 3000;
@@ -33,13 +33,13 @@ app.engine('handlebars', handlebars({
 }));
 app.set('view engine', 'handlebars');
 
-app.use(passportConfig.initialize());
-app.use(passportConfig.session());
+// app.use(passportConfig.initialize());
+// app.use(passportConfig.session());
 
 var models = require('./app_api/models');
 
-app.use('/', require('./app_server/routes/loginRoutes'));
-app.use('/users', require('./app_api/routes/userRoutes'));
+app.use('/', require('./app_api/routes/index'));
+
 
 models.sequelize.sync()
 	.then(function(){
