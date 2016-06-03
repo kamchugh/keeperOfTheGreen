@@ -3,7 +3,7 @@ var router = express.Router();
 var userCtrl = require('../controllers/userCtrl');
 
 router.get('/users', userCtrl.index);
-
-router.post('/', userCtrl.create);
+router.post('/users', userCtrl.create);
+router.delete('users/:user_id', userCtrl.delete); 
 
 module.exports = router;

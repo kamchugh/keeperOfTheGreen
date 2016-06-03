@@ -62,7 +62,7 @@ module.exports = function(sequalize, DataTypes) {
         },
         notes : {
           type : DataTypes.STRING,
-          allowNull : false,
+          allowNull : true,
           unique : false
 
         },

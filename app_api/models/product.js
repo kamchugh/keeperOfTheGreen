@@ -6,13 +6,14 @@ module.exports = function(sequelize, DataTypes) {
             unique : true
         },
         title :  DataTypes.STRING,
+
          price :  DataTypes.DECIMAL
         ,
          category : DataTypes.STRING
         ,
          description: DataTypes.STRING
         ,
-         quantity : DataTypes.INT
+         quantity : DataTypes.INTEGER
         ,
          img : DataTypes.STRING
        ,
