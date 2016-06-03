@@ -21,12 +21,8 @@ module.exports = function(sequelize, DataTypes) {
         classMethods: {
             associate : function(models) {
                 Product.hasMany(models.cart_item)
-            }
-        }, {
-        classMethods: {
-            associate : function(models) {
+            }, {
                 Product.hasMany(models.product_category)
-            }
         }
     });
 
