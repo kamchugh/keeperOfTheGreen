@@ -49,7 +49,7 @@ module.exports.create = function(req,res) {
       var rawPassword = req.body.password;
       bcrypt.hash(rawPassword, saltRounds, function(err,hash){
           models.User.upsert({
-              user_id : req.body.user_id, 
+              user_id : req.params.user_id, 
               fname : req.body.fname,
               lname : req.body.lname,
               address : req.body.address,
