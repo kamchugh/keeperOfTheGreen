@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var loginCtrl = require('../controllers/loginCtrl');
 
-router.get('/home', loginCtrl.home);
+router.get('/', loginCtrl.home);
 // router.get('/login', loginCtrl.login);
 // router.post('/authenticate', loginCtrl.authenticate);
 // router.get('/signup', loginCtrl.signup);
