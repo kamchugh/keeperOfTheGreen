@@ -1,89 +1,138 @@
+// {
+//     "fname" : "derp",
+
+//     "lname" : "dez",
+
+//     "address" : "1234 goefurslf",
+
+//     "city" : "matt damon",
+
+//     "state" : "CA",
+
+//     "zip" : "92028",
+
+//     "phone" : "8675309",
+
+//     "email" : "wezdezndev@gmail.com",
+
+//     "password" : "asdf",
+
+//     "notes" : "I like turtles",
+
+//     "credit" : "12341234134",
+
+//     "img_url" : "blahblah.img"
+
+// }
+
+
+
+
+
 module.exports = function(sequalize, DataTypes) {
+    console.log("inside models/users/define")
+
     var User = sequalize.define("User", {
 
+
         user_id : {
-          type: DataTypes.INTEGER,
-          allowNull : false,
-          unique : true
+            type : DataTypes.INTEGER,
+            allowNull : false,
+            autoIncrement: true,
+            primaryKey: true
         },
+
+
         fname : {
-          type : DataTypes.STRING,
-          allowNull : false,
-          unique : false
+            type : DataTypes.STRING,
+            allowNull : false
+
 
         },
         lname : {
-          type : DataTypes.STRING,
-          allowNull : false,
-          unique : false
+            type : DataTypes.STRING,
+            allowNull : false,
+
 
         },
         address : {
-          type : DataTypes.STRING,
-          allowNull : false,
-          unique : false
+            type : DataTypes.STRING,
+            allowNull : false,
+
 
         },
         city : {
-          type : DataTypes.STRING,
-          allowNull : false,
-          unique : false
+            type : DataTypes.STRING,
+            allowNull : false,
+
 
         },
         state : {
-          type : DataTypes.STRING,
-          allowNull : false,
-          unique : false
+            type : DataTypes.STRING,
+            allowNull : false,
+
 
         },
         zip : {
-          type : DataTypes.STRING,
-          allowNull : false,
-          unique : false
+            type : DataTypes.INTEGER,
+            allowNull : false,
+
 
         },
         phone : {
-          type : DataTypes.INTEGER,
-          allowNull : false,
-          unique : false
+            type : DataTypes.INTEGER,
+            allowNull : false,
+
 
         },
         email : {
-          type : DataTypes.STRING,
-          allowNull : false,
-          unique : false
+            type : DataTypes.STRING,
+            allowNull : false,
+
 
         },
         password : {
-          type : DataTypes.STRING,
-          allowNull : false,
-          unique : false
+            type : DataTypes.STRING,
+            allowNull : false,
+
 
         },
         notes : {
-          type : DataTypes.STRING,
-          allowNull : true,
-          unique : false
+            type : DataTypes.STRING,
+            allowNull : true,
+
 
         },
         credit : {
-          type : DataTypes.STRING,
-          allowNull : false,
-          unique : false
+            type : DataTypes.INTEGER,
+            allowNull : false,
+
 
         },
         img_url : {
-          type : DataTypes.STRING,
-          allowNull : false,
-          unique : false
-        },
-      },{
-        //   classMethods: {
-        //     associate : function(models) {
-        //         User.hasMany(models.Cart)
-        //   }
-        // }
-    });
+            type : DataTypes.STRING,
+            allowNull : false,
+
+        }
+    },
+
+                                {
+        classMethods: {
+            associate : function(models) {
+                User.hasMany(models.Cart)
+            }
+        }
+    }
+
+                               );
 
     return User;
 }
+
+
+// User
+// .findAndCountAll(user)
+// .then(function(result) {
+// 	console.log(result.count);
+// 	console.log(result.rows);
+// });
