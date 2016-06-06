@@ -4,14 +4,19 @@ var models = require('../app_api/models');
 
 var bcrypt = require('bcrypt');
 passport.use(new LocalStrategy(
+    {
+        usernameField: 'email',
+        passwordField : 'password'
+    },
     function(username,password,callback){
         models.User.findOne({ 
             where : {
-                username : username
+                email : username
             }
         })
         .then(function(user){
             if (!user) {
+                console.log("I have no user on the passortConfig");
                 return callback(null,false); 
             }
 
@@ -31,7 +36,7 @@ passport.use(new LocalStrategy(
 
 // serialize will be passed a user 'id' and store it in session
 passport.serializeUser(function(user,callback){
-    callback(null, user.id);
+    callback(null, user.user_id);
 });
 
 // deserialize will take the 'id' from the session and retrieve the user

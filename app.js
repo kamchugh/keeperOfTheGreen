@@ -3,6 +3,28 @@
 //npm install --save express
 var express = require('express');
 var app = express();
+//COOKIES
+//npm install --save cookie-parser
+var cookie = require('cookie-parser');
+var secret;
+if (process.env.SECRET) {
+    secret=process.env.SECRET;
+} else {
+    secret = require('./credentials').secret;
+}
+app.use(cookie(secret));
+
+//SESSIONS
+//npm install --save express-session
+var session = require('express-session');
+app.use(session({
+    resave: false,
+    saveUninitialized: false,
+    secret: secret,
+    key: 'user'
+}));
+
+var passportConfig = require('./config/passportConfig');
 
 //HANDLEBARS
 //npm install --save express-handlebars
@@ -17,57 +39,6 @@ app.use(express.static(__dirname + '/public'));
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
-
-
-
-//BODY PARSER
-//npm install --save body-parser
-var bp = require('body-parser');
-app.use(bp.json());
-app.use(bp.urlencoded({ extended: false }));
-
-//SQLIZE BP
-app.use(bp.urlencoded({
-    extended: false
-}));
-
-
-//COOKIES
-//npm install --save cookie-parser
-var cookie = require('cookie-parser');
-var secret;
-if (process.env.SECRET) {
-    secret=process.env.SECRET;
-} else {
-    secret = require('./credentials').secret;
-}
-app.use(cookie(secret));
-
-
-//SESSIONS
-//npm install --save express-session
-var session = require('express-session');
-app.use(session({
-    resave: false,
-    saveUninitialized: false,
-    secret: secret,
-    key: 'user'
-}));
-
-
-
-
-/////PASSPORT
-// npm install --save passport
-var passportConfig = require('./config/passportConfig');
-app.use(passportConfig.initialize());
-app.use(passportConfig.session());
-
-
-
-
-
-
 /////// SEQUELIZE /////////////////////
 // npm install --save sequelize
 // npm install --save sequelize-cli
@@ -77,6 +48,25 @@ app.use(passportConfig.session());
 
 // PORT LINK UP
 var port = process.env.PORT || 3000;
+
+
+//BODY PARSER
+//npm install --save body-parser
+var bp = require('body-parser');
+app.use(bp.json());
+app.use(bp.urlencoded({ extended: false }));
+
+
+
+
+
+
+
+/////PASSPORT
+// npm install --save passport
+app.use(passportConfig.initialize());
+app.use(passportConfig.session());
+
 
 //MODELS AND USE ROUTS
 var models = require('./app_api/models');

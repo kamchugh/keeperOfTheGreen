@@ -4,7 +4,8 @@ var bcrypt = require('bcrypt');
 const saltRounds = 13;
 
 module.exports.home = function(req,res) {
-	res.render('index', {user : req.users});
+	console.log(req.user);
+	res.render('index', {user : req.user});
 	console.log("In server controller");
 };
 
@@ -18,11 +19,17 @@ module.exports.login = function(req,res) {
 
 module.exports.authenticate = function(req,res) {
 	console.log(req.body);
+	console.log("In the authentication method");
 	passportConfig.authenticate('local', function(err,user,info){
 		if (err || !user) {
+			console.log(err);
+			console.log(user);
+			console.log("error or no user");
 			return res.redirect('/login');
 		}
 		req.login(user,function(err){
+			if (err) return console.error(err);
+			console.log(user);
 			return res.redirect('/');
 		})
 	})(req,res);
