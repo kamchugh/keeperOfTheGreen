@@ -12,9 +12,9 @@ module.exports.login = function(req,res) {
 	res.render('login')
 };
 
-/// everything Kaylee added is below 
+/// everything Kaylee added is below
 
-//authentification for login 
+//authentification for login
 
 module.exports.authenticate = function(req,res) {
 	console.log(req.body);
@@ -28,7 +28,7 @@ module.exports.authenticate = function(req,res) {
 	})(req,res);
 };
 
-//logout function 
+//logout function
 module.exports.logout = function(req,res) {
 	req.logout();
 	res.redirect('/login');

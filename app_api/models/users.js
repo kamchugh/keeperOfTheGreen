@@ -105,13 +105,13 @@ module.exports = function(sequelize, DataTypes) {
         },
         credit : {
             type : DataTypes.INTEGER,
-            allowNull : false,
+            allowNull : true,
 
 
         },
         img_url : {
             type : DataTypes.STRING,
-            allowNull : false,
+            allowNull : true,
 
         }
     },
