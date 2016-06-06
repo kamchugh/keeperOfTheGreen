@@ -28,6 +28,7 @@ module.exports.create = function(req,res) {
 
         })
             .then(function(users) {
+                console.log(users);
             res.sendStatus(201);
         })
             .catch(function(err) {

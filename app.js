@@ -55,6 +55,19 @@ app.use(session({
 }));
 
 
+
+
+/////PASSPORT
+// npm install --save passport
+var passportConfig = require('./config/passportConfig');
+app.use(passportConfig.initialize());
+app.use(passportConfig.session());
+
+
+
+
+
+
 /////// SEQUELIZE /////////////////////
 // npm install --save sequelize
 // npm install --save sequelize-cli
