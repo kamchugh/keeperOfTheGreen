@@ -2,8 +2,9 @@ module.exports = function(sequelize, DataTypes) {
     var Category = sequelize.define("Category", {
         cat_name : {
             type: DataTypes.STRING,
-            allowNull : false,
+             allowNull : false,
             unique : true
+            
         },
         description : DataTypes.STRING
     }, {
@@ -16,3 +17,10 @@ module.exports = function(sequelize, DataTypes) {
 
     return Category;
 }
+
+// {
+//     "cat_name" : "lotion",
+
+//     "description" : "to lather and slather and smear."
+
+// }

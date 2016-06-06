@@ -16,6 +16,7 @@ module.exports.showAll = function(req,res){
 // create a category
 
 module.exports.create = function(req,res) {
+	console.log(req.body);
     var category = req.body;
     models.Category.create(category)
         .then(function(category){
@@ -54,4 +55,14 @@ module.exports.update = function(req,res){
             res.sendStatus(202);
         });
 }; 
+
+// show a single category
+
+module.exports.show = function(req,res){
+	models.Category.findById(req.params.id, {
+	})
+		.then(function(category){
+			res.send(category);
+		})
+};
 
