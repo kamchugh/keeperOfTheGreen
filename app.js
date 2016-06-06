@@ -18,11 +18,18 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
 
+
+
 //BODY PARSER
 //npm install --save body-parser
 var bp = require('body-parser');
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: false }));
+
+//SQLIZE BP
+app.use(bp.urlencoded({
+    extended: false
+}));
 
 
 //COOKIES
@@ -73,14 +80,10 @@ var port = process.env.PORT || 3000;
 
 //MODELS AND USE ROUTS
 var models = require('./app_api/models');
-app.use('/', require('./app_api/routes/userRoutes'));
-app.use('/', require('./app_api/routes/cartRoutes'));
-
-
-//SQLIZE BP
-app.use(bp.urlencoded({
-    extended: false
-}));
+// app.use('/', require('./app_server/routes/loginRoutes'));
+app.use('/', require('./app_server/routes/loginRoutes'));
+app.use('/users', require('./app_api/routes/userRoutes'));
+app.use('/cart', require('./app_api/routes/cartRoutes'));
 
 
 //SQLIZE SYNC WITH PORT
@@ -101,6 +104,3 @@ models.sequelize.sync()
 // app.listen(3000, function(){
 // 	console.log('TEST TEST 123 listening on 3000');
 // });
-
-
-

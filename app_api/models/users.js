@@ -119,10 +119,14 @@ module.exports = function(sequelize, DataTypes) {
                                 {
         classMethods: {
             associate : function(models) {
-                User.hasMany(models.Cart)
+                User.hasOne(models.Cart)
+            },
+            associate : function(models) {
+                User.hasMany(models.Order)
             }
         }
     }
+
 
                                );
 
