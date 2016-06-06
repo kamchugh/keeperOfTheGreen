@@ -38,5 +38,5 @@ module.exports.authenticate = function(req,res) {
 //logout function
 module.exports.logout = function(req,res) {
 	req.logout();
-	res.redirect('/login');
+	res.redirect('/');
 }
