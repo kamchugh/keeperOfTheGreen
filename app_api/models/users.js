@@ -29,10 +29,10 @@
 
 
 
-module.exports = function(sequalize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
     console.log("inside models/users/define")
 
-    var User = sequalize.define("User", {
+    var User = sequelize.define("User", {
 
 
         user_id : {

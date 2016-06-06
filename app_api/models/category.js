@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     }, {
         classMethods: {
             associate : function(models) {
-                Category.hasMany(models.Product_Category)
+                Category.hasMany(models.product_category)
             }
         }
     });

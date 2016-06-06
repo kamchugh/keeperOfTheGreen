@@ -1,9 +1,9 @@
 
 
-module.exports = function(sequalize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
     console.log("inside models/cart/define")
 
-    var Cart = sequalize.define("Cart", {
+    var Cart = sequelize.define("Cart", {
 
 
         cart_id : {
