@@ -6,12 +6,12 @@ module.exports = function(sequelize, DataTypes) {
     var Cart = sequelize.define("Cart", {
 
 
-        cart_id : {
-            type : DataTypes.INTEGER,
-            allowNull : false,
-            autoIncrement: true,
-            primaryKey: true
-        },
+        // cart_id : {
+        //     type : DataTypes.INTEGER,
+        //     allowNull : false,
+        //     autoIncrement: true,
+        //     primaryKey: true
+        // },
 
 
         cart_title : {
@@ -27,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
                 Cart.belongsTo(models.User, {
                     onDelete : "CASCADE",
                     foreignKey : {
-                        allowNull : false 
+                        allowNull : false
                     }
                 });
             },
@@ -42,11 +42,3 @@ module.exports = function(sequelize, DataTypes) {
 
     return Cart;
 }
-
-
-
-
-
-
-
-

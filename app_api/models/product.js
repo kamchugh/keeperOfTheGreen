@@ -1,12 +1,12 @@
 module.exports = function(sequelize, DataTypes) {
     var Product = sequelize.define("Product", {
-        product_id : {
-            type: DataTypes.INTEGER,
-            allowNull : false,
-            autoIncrement: true,
-            unique : true,
-            primaryKey: true
-        },
+        // product_id : {
+        //     type: DataTypes.INTEGER,
+        //     allowNull : false,
+        //     autoIncrement: true,
+        //     unique : true,
+        //     primaryKey: true
+        // },
         title :  DataTypes.STRING,
 
          price :  DataTypes.DECIMAL,

@@ -6,12 +6,12 @@ module.exports = function(sequelize, DataTypes) {
     var Order = sequelize.define("Order", {
 
 
-        order_id : {
-            type : DataTypes.INTEGER,
-            allowNull : false,
-            autoIncrement: true,
-            primaryKey: true
-        },
+        // order_id : {
+        //     type : DataTypes.INTEGER,
+        //     allowNull : false,
+        //     autoIncrement: true,
+        //     primaryKey: true
+        // },
 
 
         order_title : {
@@ -27,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
                 Order.belongsTo(models.User, {
                     onDelete : "CASCADE",
                     foreignKey : {
-                        allowNull : false 
+                        allowNull : false
                     }
                 });
             },
