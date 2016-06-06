@@ -11,3 +11,25 @@ module.exports.home = function(req,res) {
 module.exports.login = function(req,res) {
 	res.render('login')
 };
+
+/// everything Kaylee added is below 
+
+//authentification for login 
+
+module.exports.authenticate = function(req,res) {
+	console.log(req.body);
+	passportConfig.authenticate('local', function(err,user,info){
+		if (err || !user) {
+			return res.redirect('/login');
+		}
+		req.login(user,function(err){
+			return res.redirect('/');
+		})
+	})(req,res);
+};
+
+//logout function 
+module.exports.logout = function(req,res) {
+	req.logout();
+	res.redirect('/login');
+}
