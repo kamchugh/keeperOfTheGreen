@@ -4,7 +4,8 @@ var bcrypt = require('bcrypt');
 const saltRounds = 13;
 
 module.exports.home = function(req,res) {
-	res.render('index', {user : req.user});
+	res.render('index', {user : req.users});
+	console.log("In server controller");
 };
 
 module.exports.login = function(req,res) {

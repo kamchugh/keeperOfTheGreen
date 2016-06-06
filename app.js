@@ -18,6 +18,8 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
 
+
+
 //BODY PARSER
 //npm install --save body-parser
 var bp = require('body-parser');
@@ -66,6 +68,7 @@ var port = process.env.PORT || 3000;
 //MODELS AND USE ROUTS
 var models = require('./app_api/models');
 // app.use('/', require('./app_server/routes/loginRoutes'));
+app.use('/', require('./app_server/routes/loginRoutes'));
 app.use('/users', require('./app_api/routes/userRoutes'));
 app.use('/cart', require('./app_api/routes/cartRoutes'));
 
@@ -88,6 +91,3 @@ models.sequelize.sync()
 // app.listen(3000, function(){
 // 	console.log('TEST TEST 123 listening on 3000');
 // });
-
-
-
