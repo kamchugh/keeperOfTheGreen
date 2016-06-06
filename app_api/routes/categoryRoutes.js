@@ -1,10 +1,10 @@
 var express = require('express');
-var router = require('./userRoutes');
+var router = express.Router();
 var categoryCtrl = require('../controllers/categoryCtrl');
 
 router.get('/', categoryCtrl.showAll);
 
-// router.get('/:id', categoryCtrl.show);
+ router.get('/:id', categoryCtrl.show);
 
 router.post('/', categoryCtrl.create);
 
