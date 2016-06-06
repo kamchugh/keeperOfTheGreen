@@ -24,6 +24,11 @@ var bp = require('body-parser');
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: false }));
 
+//SQLIZE BP
+app.use(bp.urlencoded({
+    extended: false
+}));
+
 
 //COOKIES
 //npm install --save cookie-parser
@@ -60,14 +65,9 @@ var port = process.env.PORT || 3000;
 
 //MODELS AND USE ROUTS
 var models = require('./app_api/models');
-app.use('/', require('./app_api/routes/userRoutes'));
-app.use('/', require('./app_api/routes/cartRoutes'));
-
-
-//SQLIZE BP
-app.use(bp.urlencoded({
-    extended: false
-}));
+// app.use('/', require('./app_server/routes/loginRoutes'));
+app.use('/users', require('./app_api/routes/userRoutes'));
+app.use('/cart', require('./app_api/routes/cartRoutes'));
 
 
 //SQLIZE SYNC WITH PORT
