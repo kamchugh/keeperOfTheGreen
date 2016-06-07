@@ -8,7 +8,7 @@ const saltRounds = 13;
 
 
 //CREATE USER
-module.exports.create = function(req,res) {
+module.exports.register = function(req,res) {
     console.log("inside create user");
     var rawPassword = req.body.password;
     bcrypt.hash(rawPassword, saltRounds, function(err,hash){
@@ -22,22 +22,14 @@ module.exports.create = function(req,res) {
             phone : req.body.phone,
             email : req.body.email,
             password : hash,
-            notes : req.body.notes,
-            credit : req.body.credit,
-            img_url : req.body.img_url,
 
         })
-            .then(function(users) {
-                console.log(users);
-            res.sendStatus(201);
-        })
-            .catch(function(err) {
-            res.status(500);
-            res.send('InternalServerError: User not created');
+            .then(function(user) {
+              req.login(user,function(err){
+                return res.redirect('/');
+              })
         });
-
     });
-
 };
 
 
@@ -71,9 +63,9 @@ module.exports.getSpecificUser = function(req,res){
 
 
 //UPDATE USER
-module.exports.update = function(req,res) {
-    var rawPassword = req.body.password;
-    bcrypt.hash(rawPassword, saltRounds, function(err,hash){
+module.exports.profileUpdate = function(req,res) {
+  console.log("Trying to update from user");
+    bcrypt.hash(req.body.password, saltRounds, function(err,hash){
         models.User.upsert({
             user_id : req.body.user_id,
             fname : req.body.fname,
@@ -84,19 +76,14 @@ module.exports.update = function(req,res) {
             zip : req.body.zip,
             phone : req.body.phone,
             email : req.body.email,
-            password : hash,
-            notes : req.body.notes,
-            credit : req.body.credit,
-            img_url : req.body.img_url,
+            password : req.body.password,
+
         })
             .then(function(user) {
-            res.sendStatus(201);
-        })
-            .catch(function(err) {
-            res.status(500);
-            res.send('InternalServerError: User not created');
+              req.login(user,function(err){
+                return res.redirect('/');
+              })
         });
-
     });
 };
 
@@ -118,20 +105,3 @@ module.exports.destroy = function(req,res){
         res.send(err);
     })
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

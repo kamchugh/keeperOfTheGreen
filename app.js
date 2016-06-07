@@ -72,10 +72,16 @@ app.use(passportConfig.session());
 var models = require('./app_api/models');
 // app.use('/', require('./app_server/routes/loginRoutes'));
 app.use('/', require('./app_server/routes/loginRoutes'));
-app.use('/signup', require('./app_server/routes/signupRoutes'));
+app.use('/register', require('./app_api/routes/userRoutes'));
 app.use('/users', require('./app_api/routes/userRoutes'));
 app.use('/cart', require('./app_api/routes/cartRoutes'));
 app.use('/categories', require('./app_api/routes/categoryRoutes'));
+
+
+
+
+
+app.use('/signup', require('./app_server/routes/signupRoutes'));
 
 
 //SQLIZE SYNC WITH PORT
