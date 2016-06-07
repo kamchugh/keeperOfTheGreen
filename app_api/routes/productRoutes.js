@@ -1,5 +1,5 @@
 var express = require('express');
-var router = require('./userRoutes');
+var router = express.Router();
 var productCtrl = require('../controllers/productCtrl');
 
 router.get('/', productCtrl.showAll);
