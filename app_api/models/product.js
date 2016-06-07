@@ -1,12 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
     var Product = sequelize.define("Product", {
-        // product_id : {
-        //     type: DataTypes.INTEGER,
-        //     allowNull : false,
-        //     autoIncrement: true,
-        //     unique : true,
-        //     primaryKey: true
-        // },
+        product_id : {
+            type: DataTypes.INTEGER,
+            allowNull : false,
+            autoIncrement: true,
+            primaryKey: true
+        },
         title :  DataTypes.STRING,
 
          price :  DataTypes.DECIMAL,
@@ -21,7 +20,15 @@ module.exports = function(sequelize, DataTypes) {
 },{
         classMethods: {
             associate : function(models) {
-                // Product.hasMany(models.cart_item),
+                Product.belongsToMany(models.Cart, {
+                    through : {
+                        model : models.Item
+                    },
+                    foreignKey: {
+                        field: "product_id",
+                        allowNull: false
+                    }
+                })
                 Product.hasMany(models.product_category)
               }
             }
