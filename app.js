@@ -79,6 +79,7 @@ app.use('/product', require('./app_api/routes/productRoutes'));
 app.use('/categories', require('./app_api/routes/categoryRoutes'));
 app.use('/admin', require('./app_server/routes/adminRoutes'));
 app.use('/viewProducts', require('./app_server/routes/productRoutes'));
+app.use('/profileUpdate', require('./app_server/routes/loginRoutes'));
 
 
 
