@@ -26,8 +26,7 @@ DESCRIPTION {{this.description}}
 </form>
 
 <h1>Create a Product</h1>
-<form action="/products/{{this.id}}" method="PUT">
-	<input type="hidden" placeholder="{{this.id}}"name="id"/><br />
+<form action="/product" method="POST">
 	<input type="text" placeholder="title"name="title"/><br />
 	<input type="text" placeholder="price" name="price" /><br />
 	<input type="text" placeholder="category" name="category" /><br />
