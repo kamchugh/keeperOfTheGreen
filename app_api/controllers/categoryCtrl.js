@@ -49,6 +49,7 @@ module.exports.destroy = function(req,res){
 // update a category
 
 module.exports.update = function(req,res){
+	console.log("in update in app api");
     var updatedCategory = req.body;
     models.Category.upsert(updatedCategory)
         .then(function(){

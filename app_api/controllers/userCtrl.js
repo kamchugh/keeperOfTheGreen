@@ -24,10 +24,27 @@ module.exports.register = function(req,res) {
             password : hash,
 
         })
+<<<<<<< HEAD
             .then(function(user) {
               req.login(user,function(err){
                 return res.redirect('/');
               })
+=======
+        .then(function(users){
+                // models.Cart.create(cart);
+                models.Cart.create({
+                   UserId : req.body.user_id
+
+               })
+            })
+        .then(function(user) {
+            
+            res.sendStatus(201);
+        })
+        .catch(function(err) {
+            res.status(500);
+            res.send('InternalServerError: User not created');
+>>>>>>> 2e247cea2e33ef66355610ade2b9c064be76c30d
         });
     });
 };
@@ -36,10 +53,10 @@ module.exports.register = function(req,res) {
 //SHOW ALL USERS
 module.exports.showAll = function(req,res){
     models.User.findAll()
-        .then(function(users){
+    .then(function(users){
         res.send(users);
     })
-        .catch(function(err){
+    .catch(function(err){
         console.error(err);
         res.status(500);
         res.send(err);
@@ -50,10 +67,10 @@ module.exports.showAll = function(req,res){
 //GET SPECIFIC USER
 module.exports.getSpecificUser = function(req,res){
     models.User.findById(req.params.id)
-        .then(function(users){
+    .then(function(users){
         res.json(users);
     })
-        .catch(function(err){
+    .catch(function(err){
         console.error(err);
         res.status(500);
         res.send(err);
@@ -79,10 +96,19 @@ module.exports.profileUpdate = function(req,res) {
             password : req.body.password,
 
         })
+<<<<<<< HEAD
             .then(function(user) {
               req.login(user,function(err){
                 return res.redirect('/');
               })
+=======
+        .then(function(user) {
+            res.sendStatus(201);
+        })
+        .catch(function(err) {
+            res.status(500);
+            res.send('InternalServerError: User not created');
+>>>>>>> 2e247cea2e33ef66355610ade2b9c064be76c30d
         });
     });
 };
@@ -97,10 +123,10 @@ module.exports.destroy = function(req,res){
             user_id : req.body.user_id
         }
     })
-        .then(function(){
+    .then(function(){
         res.sendStatus(202);
     })
-        .catch(function (err) {
+    .catch(function (err) {
         res.status(500);
         res.send(err);
     })

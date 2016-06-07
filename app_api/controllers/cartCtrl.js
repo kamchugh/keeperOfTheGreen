@@ -53,28 +53,32 @@ var models = require('../models');
 
 
 //////CREATE A CART
-//cart_id
-module.exports.cartInit = function (req, res) {
-    console.log("inside cart init");
-    models.Cart.create({
-        cart_title : req.body.cart_title,
-        UserId : req.params.uid
-    })
-        .then(function (cart) {
-        models.User.findById(req.params.uid)
-            .then(function (user) {
-            user.addCart(cart)
-                .then(function () {
-                res.sendStatus(201);
-            })
-                .catch(function(err){
-                console.error(err);
-                res.status(500);
-                res.send(err);
-            });
-        })
-    })
-};
+// //cart_id
+// module.exports.cartInit = function (req, res) {
+//     console.log("inside cart title: " + req.body.cart_title);
+
+//     console.log("inside cart init: " + req.params.uid);
+//     models.Cart.create({
+//         cart_title : req.body.cart_title,
+//         UserIdUserId : req.params.uid
+
+//     })
+
+//         .then(function (cart) {
+//         models.User.findById(req.params.uid)
+//             .then(function (user) {
+//             user.createCart(cart)
+//                 .then(function () {
+//                 res.sendStatus(201);
+//             })
+//                 .catch(function(err){
+//                 console.error(err);
+//                 res.status(500);
+//                 res.send(err);
+//             });
+//         })
+//     })
+// };
 
 
  
@@ -98,6 +102,51 @@ module.exports.showAllItems = function(req,res){
     })
 };
 
+// module.exports.cartAddItem = function(req,res){
+
+//     var item = req.body;
+//     item.CartId = req.params.cid;
+
+
+
+//     models.User.findById(req.params.uid)
+//         .then(function(user){
+//         models.Cart.findById(req.params.cid)
+//             .then(function(carts){
+//                     models.Item.create({
+//                    UserId : req.body.user_id
+
+//                })
+//                     .then(function(item)
+//                         cart.addItem(item);
+                    
+//             })
+//         })
+//             .catch(function(err){
+//             console.error(err);
+//             res.status(500);
+//             res.send(err);
+//         });
+//     })
+// };
+
+
+// module.exports.addTask = function(req,res){
+//     var task = req.body;
+//     task.UserId = req.params.id; // add the UserId to the Task
+
+//     models.Task.create(task) // create the Task
+//         .then(function(task){
+//             models.User.findById(req.params.id) // find the User
+//                 .then(function(user){
+//                     user.addTask(task) // add the task to the user
+//                         .then(function(){
+//                             res.json(user);
+//                         })
+//                 })
+//         })
+        
+// };
 
 
 

@@ -4,15 +4,17 @@ var cartCtrl = require('../controllers/cartCtrl');
 
 
 
-///////CARTS (USING MULTIPLE CARTS TO SHOW PURCHASE HISTORY)/////////
+///////CARTS /////////
 
 
 
-router.get('/cart/:uid/:cid', cartCtrl.showAllItems);
+router.get('/:uid/:cid', cartCtrl.showAllItems);
 
 
-//CREATE A CART
-router.post('/cart/:uid', cartCtrl.cartInit);
+// router.post('/:uid/:cid/:pid', cartCtrl.cartAddItem);
+
+//CREATE A CARTrouter.post('/:uid', cartCtrl.cartInit);
+// 
 
 
 
