@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "kog_db",
+    "database": "kog",
     "host": "localhost",
     "dialect": "mysql"
   },
