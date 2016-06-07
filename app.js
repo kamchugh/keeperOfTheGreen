@@ -79,6 +79,7 @@ app.use('/categories', require('./app_api/routes/categoryRoutes'));
 
 
 app.use('/admin', require('./app_server/routes/adminRoutes'));
+app.use('/viewProducts', require('./app_server/routes/productRoutes'));
 
 
 //SQLIZE SYNC WITH PORT
