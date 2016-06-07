@@ -1,17 +1,20 @@
 module.exports = function(sequelize, DataTypes) {
   var Item = sequelize.define('Item', {
     // description: DataTypes.STRING
-    title : DataTypes.STRING
 
-  }, {
-    classMethods: {
-      associate: function(models) {
-        Item.belongsTo(models.Cart, {
-          onDelete: 'CASCADE',
-          foreignKey: { notNull: true }
-        });
-      }
-    }
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    item_quantity : DataTypes.INTEGER,
+    cart_id : DataTypes.INTEGER,
+    product_id : {
+      type: DataTypes.INTEGER,
+      unique : false
+    } 
+
   });
 
   return Item;
@@ -38,7 +41,7 @@ module.exports = function(sequelize, DataTypes) {
 //     return Tag;
 // };
 
-// // models/Posttag.js
+// models/Posttag.js
 // module.exports = function(sequelize, DataTypes){
 //     var Posttag = sequelize.define('Posttag', {
 //         tag_id : {

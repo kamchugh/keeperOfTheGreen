@@ -11,7 +11,10 @@ var cartCtrl = require('../controllers/cartCtrl');
 router.get('/:uid/:cid', cartCtrl.showAllItems);
 
 
-// router.post('/:uid/:cid/:pid', cartCtrl.cartAddItem);
+
+//ADD PRODUCT TO CART
+router.post('/', cartCtrl.cartAddProduct);
+
 
 //CREATE A CARTrouter.post('/:uid', cartCtrl.cartInit);
 // 
