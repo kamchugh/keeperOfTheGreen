@@ -78,6 +78,9 @@ app.use('/cart', require('./app_api/routes/cartRoutes'));
 app.use('/categories', require('./app_api/routes/categoryRoutes'));
 
 
+app.use('/admin', require('./app_server/routes/adminRoutes'));
+
+
 //SQLIZE SYNC WITH PORT
 models.sequelize.sync()
     .then(function(){
