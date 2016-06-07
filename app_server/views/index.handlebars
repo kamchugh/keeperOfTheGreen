@@ -1,9 +1,10 @@
 <h1>Index</h1>
 
 {{#if user}}
-<h3>ID: {{user.id}}</h3>
-<h3>ID: {{user.username}}</h3>
-<h3>ID: {{user.password}}</h3>
+<h3>Currently Logged in as: {{user.fname}} {{user.lname}} </h3> <form action="/logout" method="GET"> <input type="submit" value="Log Out">
 {{else}}
-<h3>NO USER!</h3>
+<h3>You are logged in as: Guest</h3><a href="login">Log In</a> <a href="profile">View Profile</a> 
 {{/if}}
+
+ <a href="admin"> View Category Admin Features </a> 
+<a href ="viewProducts"> View all products </a>

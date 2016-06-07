@@ -16,6 +16,7 @@ module.exports.showAll = function(req,res){
 // create a category
 
 module.exports.create = function(req,res) {
+	console.log(req.body);
     var category = req.body;
     models.Category.create(category)
         .then(function(category){
@@ -48,10 +49,21 @@ module.exports.destroy = function(req,res){
 // update a category
 
 module.exports.update = function(req,res){
+	console.log("in update in app api");
     var updatedCategory = req.body;
     models.Category.upsert(updatedCategory)
         .then(function(){
             res.sendStatus(202);
         });
 }; 
+
+// show a single category
+
+module.exports.show = function(req,res){
+	models.Category.findById(req.params.id, {
+	})
+		.then(function(category){
+			res.send(category);
+		})
+};
 

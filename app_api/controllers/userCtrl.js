@@ -27,11 +27,18 @@ module.exports.create = function(req,res) {
             img_url : req.body.img_url,
 
         })
-            .then(function(users) {
-                console.log(users);
+        .then(function(users){
+                // models.Cart.create(cart);
+                models.Cart.create({
+                   UserId : req.body.user_id
+
+               })
+            })
+        .then(function(user) {
+            
             res.sendStatus(201);
         })
-            .catch(function(err) {
+        .catch(function(err) {
             res.status(500);
             res.send('InternalServerError: User not created');
         });
@@ -44,10 +51,10 @@ module.exports.create = function(req,res) {
 //SHOW ALL USERS
 module.exports.showAll = function(req,res){
     models.User.findAll()
-        .then(function(users){
+    .then(function(users){
         res.send(users);
     })
-        .catch(function(err){
+    .catch(function(err){
         console.error(err);
         res.status(500);
         res.send(err);
@@ -58,10 +65,10 @@ module.exports.showAll = function(req,res){
 //GET SPECIFIC USER
 module.exports.getSpecificUser = function(req,res){
     models.User.findById(req.params.id)
-        .then(function(users){
+    .then(function(users){
         res.json(users);
     })
-        .catch(function(err){
+    .catch(function(err){
         console.error(err);
         res.status(500);
         res.send(err);
@@ -89,10 +96,10 @@ module.exports.update = function(req,res) {
             credit : req.body.credit,
             img_url : req.body.img_url,
         })
-            .then(function(user) {
+        .then(function(user) {
             res.sendStatus(201);
         })
-            .catch(function(err) {
+        .catch(function(err) {
             res.status(500);
             res.send('InternalServerError: User not created');
         });
@@ -110,10 +117,10 @@ module.exports.destroy = function(req,res){
             user_id : req.body.user_id
         }
     })
-        .then(function(){
+    .then(function(){
         res.sendStatus(202);
     })
-        .catch(function (err) {
+    .catch(function (err) {
         res.status(500);
         res.send(err);
     })
