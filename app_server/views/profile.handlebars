@@ -1,6 +1,6 @@
 <h1>Profile</h1>
-<form action="/profileUpdate" method="POST">
-	<input type="text" value="{{user.user_id}}"name="id"/><br />
+<form name="updateUser" method="PUT">
+	<input type="text" id="user_id" value="{{user.user_id}}"name="id"/><br />
 	<input type="text" value="{{user.fname}}"name="fname"/><br />
 	<input type="text" value="{{user.lname}}" name="lname" /><br />
 	<input type="text" value="{{user.address}}" name="address" /><br />
@@ -10,5 +10,5 @@
 	<input type="text" value="{{user.phone}}" name="phone" /><br />
 	<input type="text" value="{{user.email}}" name="email" /><br />
 	<input type="password" placeholder="Enter Password" name="password" /><br />
-	<input type="submit" value="Update" />
+	<input type="submit" id="submit" value="Update" />
 </form>

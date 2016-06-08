@@ -6,7 +6,7 @@ router.get('/', userCtrl.showAll);
 router.get('/:id', userCtrl.getSpecificUser);
 // router.post('/register', userCtrl.register);
 router.delete('/', userCtrl.destroy);
-// router.put('/', userCtrl.update);
+router.put('/', userCtrl.update);
 
 
 
