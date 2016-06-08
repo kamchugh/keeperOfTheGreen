@@ -1,7 +1,3 @@
-// addEventListener('load', function(e) {
-
-console.log("loaded");
-
 document.updateUser.submit.addEventListener('click', function(e) {
 
 e.preventDefault();
@@ -40,8 +36,4 @@ if (xhr.readyState === 4 && xhr.status >= 400) {
 }
 };
 xhr.send(jsonString);
-
-
-
 });
-// });
