@@ -2,7 +2,7 @@ You are on the products page.
 
 {{#each products}}
 
-ID {{this.product_id}} <br>
+ID {{this.id}} <br>
 
 TITLE {{this.title}} <br>
 
@@ -16,7 +16,9 @@ QUANTITY {{this.quantity}} <br>
 
 IMAGE {{this.image}} <br>
 
-<a href="IDK"> Add to cart </a>
+
+
+<a href="/viewProducts/createCartItem/{{this.id}}"> Add to cart </a>
 
 <br>
 <br>

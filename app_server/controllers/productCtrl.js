@@ -75,9 +75,11 @@ module.exports.checkoutPage = function(req,res) {
 					var price = 0;
 					var total = 0;
 					for(var i = 0; i < cart.dataValues.Products.length; i ++) {
-						quantity += cart.dataValues.Products[i].dataValues.Item.dataValues.item_quantity
+						quantity = cart.dataValues.Products[i].dataValues.Item.dataValues.item_quantity
 						 price += cart.dataValues.Products[i].dataValues.price
+						 console.log("quantity * price" + quantity * price);
 						total =  total + (quantity * price)
+						console.log("total in " + i + "iteration of the looop" + total);
 						console.log("item quantity value I'M IN THE LOOP " + cart.dataValues.Products[i].dataValues.Item.dataValues.item_quantity);
 					}
 					
@@ -87,6 +89,23 @@ module.exports.checkoutPage = function(req,res) {
 			// 		 })
 			// })	
 		})
+};
+
+module.exports.cartAddItem = function(req,res){
+
+    var item = {"item_quantity" : 1, "CartId" : req.user.user_id, "ProductId" : req.params.pid};
+    
+
+    models.Item.create(item)
+    .then(function(item){
+        res.render('shoppingcart', {item : item});
+			
+    })    
+    .catch(function(err){
+        console.error(err);
+        res.status(500);
+        res.send(err);
+    });
 };
 
 

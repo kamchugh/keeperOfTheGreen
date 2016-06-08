@@ -9,5 +9,7 @@ router.get('/checkout', productCtrlServer.checkoutPage);
 
 router.get('/createOrder', productCtrlServer.createOrder);
 
+router.get('/createCartItem/:pid', productCtrlServer.cartAddItem);
+
 module.exports = router;
 
