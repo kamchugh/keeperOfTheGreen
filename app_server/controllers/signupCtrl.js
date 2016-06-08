@@ -21,6 +21,15 @@ module.exports.register = function(req,res) {
 			email : req.body.email,
 			password : hash,
 		})
+		 .then(function(users){
+		 	console.log("user " + users.user_id);
+                // models.Cart.create(cart);
+                models.Cart.create({
+
+                   UserUserId : users.user_id
+
+               })
+            })
 			.then(function(user){
 				req.login(user,function(err){
 					return res.redirect('/');

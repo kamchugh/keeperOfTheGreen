@@ -4,7 +4,7 @@ module.exports = function (sequelize, DataTypes) {
     var Cart = sequelize.define("Cart", {
 
 
-        cart_id: {
+        id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             autoIncrement: true,
@@ -12,25 +12,39 @@ module.exports = function (sequelize, DataTypes) {
         }
 
     },
-
     {
         classMethods: {
-            associate: function (models) {
+            associate : function(models) {
                 Cart.belongsToMany(models.Product, {
                     through : {
                         model : models.Item
                     },
-                    foreignKey: {
-                        field : "cart_id",
-                        allowNull: false
-                    },
-
+                    // foreignKey: {
+                    //     field: "product_id",
+                    //     allowNull: false
+                    // }
                 });
-                
+              }
             }
-            
-        }
     });
+    // {
+    //     classMethods: {
+    //         associate: function (models) {
+    //             Cart.belongsToMany(models.Product, {
+    //                 through : {
+    //                     model : models.Item
+    //                 },
+    //                 foreignKey: {
+    //                     field : "cart_id",
+    //                     allowNull: false
+    //                 }
+
+    //             });
+                
+    //         }
+            
+    //     }
+    // });
 
 
     return Cart;

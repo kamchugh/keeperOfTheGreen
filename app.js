@@ -91,6 +91,8 @@ app.use('/signup', require('./app_server/routes/signupRoutes'));
 
 //SQLIZE SYNC WITH PORT
 models.sequelize.sync()
+// {force : true}
+
     .then(function(){
     console.log('successfully synced db');
     app.listen(port, function(){
