@@ -35,7 +35,7 @@ var handlebars = require('express-handlebars')
 });
 var path = require('path');
 app.set('views', path.join(__dirname, 'app_server', 'views'));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/app_server/views/public'));
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
@@ -72,14 +72,24 @@ app.use(passportConfig.session());
 var models = require('./app_api/models');
 // app.use('/', require('./app_server/routes/loginRoutes'));
 app.use('/', require('./app_server/routes/loginRoutes'));
-app.use('/signup', require('./app_server/routes/signupRoutes'));
+app.use('/register', require('./app_api/routes/userRoutes'));
 app.use('/users', require('./app_api/routes/userRoutes'));
 app.use('/cart', require('./app_api/routes/cartRoutes'));
 app.use('/product', require('./app_api/routes/productRoutes'));
 app.use('/categories', require('./app_api/routes/categoryRoutes'));
 app.use('/admin', require('./app_server/routes/adminRoutes'));
 app.use('/viewProducts', require('./app_server/routes/productRoutes'));
+app.use('/profileUpdate', require('./app_server/routes/loginRoutes'));
+app.use('/profile', require('./app_server/routes/loginRoutes'));
 
+
+
+
+
+
+
+
+app.use('/signup', require('./app_server/routes/signupRoutes'));
 
 
 //SQLIZE SYNC WITH PORT
