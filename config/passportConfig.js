@@ -9,7 +9,7 @@ passport.use(new LocalStrategy(
         passwordField : 'password'
     },
     function(username,password,callback){
-        models.User.findOne({ 
+        models.User.findOne({
             where : {
                 email : username
             }
@@ -17,7 +17,7 @@ passport.use(new LocalStrategy(
         .then(function(user){
             if (!user) {
                 console.log("I have no user on the passortConfig");
-                return callback(null,false); 
+                return callback(null,false);
             }
 
             // replace the previous password comparison with this
@@ -25,12 +25,12 @@ passport.use(new LocalStrategy(
                 if (err || !result) {
                     return callback(null,false);
                 }
-                return callback(null, user); 
+                return callback(null, user);
             });
 
         })
         .catch(function(err){
-            return callback(err); 
+            return callback(err);
         });
     }));
 

@@ -1,6 +1,8 @@
 var passportConfig = require('../../config/passportConfig');
 var models = require('../../app_api/models');
 var bcrypt = require('bcrypt');
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+var xhr = new XMLHttpRequest();
 
 const saltRounds = 13;
 
@@ -41,11 +43,21 @@ module.exports.logout = function(req,res) {
 	req.logout();
 	res.redirect('/');
 };
-
 module.exports.profile = function(req,res) {
 	res.render('profile', {user : req.user});
+
 };
 
+module.exports.updateUser = function(req,res) {
+		var updatedUser = req.body;
+	models.User.upsert(updatedUser)
+		.then(function(){
+			req.login(user,function(err){
+				return res.redirect('/profile');
+		})
+
+	});
+};
 
 // module.exports.profileUpdate = function(req,res) {
 //   console.log("Trying to update");

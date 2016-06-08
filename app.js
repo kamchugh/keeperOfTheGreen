@@ -35,7 +35,7 @@ var handlebars = require('express-handlebars')
 });
 var path = require('path');
 app.set('views', path.join(__dirname, 'app_server', 'views'));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/app_server/views/public'));
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 
@@ -80,6 +80,9 @@ app.use('/categories', require('./app_api/routes/categoryRoutes'));
 app.use('/admin', require('./app_server/routes/adminRoutes'));
 app.use('/viewProducts', require('./app_server/routes/productRoutes'));
 app.use('/profileUpdate', require('./app_server/routes/loginRoutes'));
+app.use('/profile', require('./app_server/routes/loginRoutes'));
+
+
 
 
 

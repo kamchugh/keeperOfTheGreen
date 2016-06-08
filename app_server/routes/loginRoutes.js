@@ -7,7 +7,7 @@ router.get('/', loginCtrl.home);
 router.get('/login', loginCtrl.login);
 router.post('/authenticate', loginCtrl.authenticate);
 router.get('/profile', loginCtrl.profile);
-// router.get('/profileUpdate', loginCtrl.profileUpdate);
+router.put('/updateUser', loginCtrl.updateUser);
 // router.post('/register', loginCtrl.register);
  router.get('/logout', loginCtrl.logout);
 

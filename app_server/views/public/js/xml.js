@@ -1,6 +1,10 @@
-document.updateUser.getElementById('submit').addEventListener('click', function(e) {
+// addEventListener('load', function(e) {
 
-e.preventdefault();
+console.log("loaded");
+
+document.updateUser.submit.addEventListener('click', function(e) {
+
+e.preventDefault();
 
 var form = e.target.parentElement;
 
@@ -14,16 +18,15 @@ var user = {
     zip: form.zip.value,
     phone: form.phone.value,
     email: form.email.value,
-    password: form.password.value,
+
 }
 
 console.log("*****************************************");
 
 var jsonString = JSON.stringify(user);
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var xhr = new XMLHttpRequest();
 
-xhr.open('PUT', '/users');
+xhr.open('PUT', '/updateUser');
 
 xhr.setRequestHeader('Content-type', 'application/json');
 
@@ -37,8 +40,8 @@ if (xhr.readyState === 4 && xhr.status >= 400) {
 }
 };
 xhr.send(jsonString);
+
+
+
 });
-
-var data = JSON.parse(jsonString);
-
-console.log("***********************************************************");
+// });
