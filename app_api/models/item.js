@@ -9,11 +9,12 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true
     },
     item_quantity : DataTypes.INTEGER,
-    cart_id : DataTypes.INTEGER,
-    product_id : {
-      type: DataTypes.INTEGER,
-      unique : false
-    } 
+    // cart_id : { 
+    //   type : DataTypes.INTEGER,
+    //   allowNull : true,
+    //   unique : false
+    // },
+    
 
   });
 

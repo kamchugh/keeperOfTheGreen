@@ -48,6 +48,7 @@ module.exports.destroy = function(req,res){
 // update a product
 
 module.exports.update = function(req,res){
+	
     var updatedProduct = req.body;
     models.Product.upsert(updatedProduct)
         .then(function(){

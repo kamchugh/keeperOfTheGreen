@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Product = sequelize.define("Product", {
-        product_id : {
+        id : {
             type: DataTypes.INTEGER,
             allowNull : false,
             autoIncrement: true,
@@ -24,10 +24,12 @@ module.exports = function(sequelize, DataTypes) {
                     through : {
                         model : models.Item
                     },
-                    foreignKey: {
-                        field: "product_id",
-                        allowNull: false
-                    }
+
+                    // this was it!
+                    // foreignKey: {
+                    //     field: "cart_id",
+                    //     unique : false   
+                    // }
                 })
                 Product.hasMany(models.product_category)
               }

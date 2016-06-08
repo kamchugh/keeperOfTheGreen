@@ -84,6 +84,8 @@ app.use('/viewProducts', require('./app_server/routes/productRoutes'));
 
 //SQLIZE SYNC WITH PORT
 models.sequelize.sync()
+// {force : true}
+
     .then(function(){
     console.log('successfully synced db');
     app.listen(port, function(){

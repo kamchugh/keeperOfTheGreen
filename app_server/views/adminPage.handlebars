@@ -1,22 +1,3 @@
-{{#each categories}}
-
-
-<h1>Update a Category</h1>
-<form action="/categories/{{this.id}}" method="PUT">
-	<input type="hidden" placeholder="{{this.cat_id}}"name="id"/><br />
-	<input type="text" value="{{this.cat_name}}"name="cat_name"/><br />
-	<input type="text" value="{{this.description}}" name="description" /><br />
-	<input type="submit" value="Update" />
-</form>
-
-ID {{this.id}}
-
-NAME {{this.cat_name}}
-
-DESCRIPTION {{this.description}}
-
-{{/each}}
-
 <h1>Create a category</h1>
 <form action="/categories" method="POST">
 	<input type="text" placeholder="id" name="id"/><br />
@@ -36,18 +17,38 @@ DESCRIPTION {{this.description}}
 	<input type="submit" value="Create" />
 </form>
 
+{{#each categories}}
+
+
+<h1>Update a Category</h1>
+<form action="/categories/{{this.id}}" method="PUT">
+	<input type="hidden" placeholder="{{this.cat_id}}"name="id"/><br />
+	<input type="text" value="{{this.cat_name}}"name="cat_name"/><br />
+	<input type="text" value="{{this.description}}" name="description" /><br />
+	<input type="submit" value="Update" />
+</form>
+
+ID {{this.id}}
+
+NAME {{this.cat_name}}
+
+DESCRIPTION {{this.description}}
+
+{{/each}}
+
+
 {{#each products}}
 
 
 <h1>Update a Product</h1>
 <form action="/categories/{{this.id}}" method="PUT">
-	<input type="hidden" placeholder="{{this.cat_id}}"name="id"/><br />
-	<input type="text" value="{{this.cat_name}}"name="cat_name"/><br />
+	<input type="text" placeholder="{{this.product_id}}"name="id"/><br />
+	<input type="text" value="{{this.title}}"name="title"/><br />
+	<input type="text" value="{{this.price}}" name="price" /><br />
+	<input type="text" value="{{this.category}}" name="category" /><br />
 	<input type="text" value="{{this.description}}" name="description" /><br />
-	<input type="text" value="{{this.description}}" name="description" /><br />
-	<input type="text" value="{{this.description}}" name="description" /><br />
-	<input type="text" value="{{this.description}}" name="description" /><br />
-	<input type="text" value="{{this.description}}" name="description" /><br />
+	<input type="text" value="{{this.quantity}}" name="quantity" /><br />
+	<input type="text" value="{{this.image}}" name="image" /><br />
 	<input type="submit" value="Update" />
 </form>
 

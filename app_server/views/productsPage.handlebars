@@ -2,7 +2,7 @@ You are on the products page.
 
 {{#each products}}
 
-ID {{this.id}} <br>
+ID {{this.product_id}} <br>
 
 TITLE {{this.title}} <br>
 
@@ -20,5 +20,11 @@ IMAGE {{this.image}} <br>
 
 <br>
 <br>
+
+{{/each}}
+
+{{#each items}}
+
+{{this.ProductId}}
 
 {{/each}}
