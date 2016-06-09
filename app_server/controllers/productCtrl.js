@@ -124,6 +124,7 @@ module.exports.cartAddItem = function(req,res) {
 
 
 module.exports.createOrder = function(req,res) {
+	var orderItems = [];
 		models.Cart.findOne({
 				where : {
 					UserUserId : req.user.user_id
@@ -151,7 +152,24 @@ module.exports.createOrder = function(req,res) {
 					 item.destroy();
 					 //{item_quantity : quantity}
 				}
-				res.render('shoppingcart');
+				models.Order.findOne({
+					where : {
+						id : order.id
+					},
+					include : [
+					models.Product
+					]
+				})
+				.then(function(singleOrder){
+						for(var i = 0; i < singleOrder.dataValues.Products.length; i ++) {
+						var product = singleOrder.dataValues.Products[i];
+						orderItems.push(product);
+						console.log("ORDER ITEM QUANTITY")
+						console.log(singleOrder.dataValues.Products[i].order_item.dataValues.item_quantity);
+					}
+					res.render('checkoutConfirmation', {orderItems : orderItems, singleOrder : singleOrder});
+					})
+				
 				})
 
 			})
