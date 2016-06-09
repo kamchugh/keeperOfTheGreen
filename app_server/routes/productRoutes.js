@@ -14,6 +14,7 @@ router.get('/createCartItem/:pid', productCtrlServer.cartAddItem);
 
 router.put('/updateProduct', productCtrlServer.update);
 
+
 // router.put('/updateProduct', productCtrlServer.cartAddItem);
 
 module.exports = router;

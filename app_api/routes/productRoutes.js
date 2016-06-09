@@ -8,7 +8,7 @@ router.get('/:id', productCtrl.show);
 
 router.post('/', productCtrl.create);
 
-router.delete('/', productCtrl.destroy);
+router.delete('/deleteProduct', productCtrl.destroy);
 
 router.put('/updateProduct', productCtrl.update);
 

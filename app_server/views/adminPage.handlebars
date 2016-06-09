@@ -7,6 +7,10 @@
 	<input type="submit" value="Create" />
 </form>
 
+<br>
+<br>
+<br>
+
 <h1>Create a Product</h1>
 <form action="/product" method="POST">
 	<input type="text" placeholder="title"name="title"/><br />
@@ -17,55 +21,37 @@
 	<input type="text" placeholder="img" name="img" /><br />
 	<input type="submit" value="Create" />
 </form>
+<br>
+<br>
+<br>
+<br>
 
+<h1>Categories</h1>
  {{#each categories}}
-
-
-<h1>Update a Category</h1>
+<h5>Category: {{this.cat_name}}</h5><pre>
 <form action="/editCategory{{this.id}}" method ="GET">
-	<input type="text" placeholder="{{this.id}}"name="id"/><br />
-	<input type="text" value="{{this.cat_name}}"name="cat_name"/><br />
-	<input type="text" value="{{this.description}}" name="description" /><br />
+	ID:   <input type="text" placeholder="{{this.id}}"name="id"/><br />
+	Name: <input type="text" value="{{this.cat_name}}"name="cat_name"/><br />
+	Desc: <input type="text" value="{{this.description}}" name="description" /><br />
 	<input type="submit"  value="Edit" />
-
-</form>
-
-ID {{this.id}}
-
-
-DESCRIPTION {{this.description}}
-
+</form></pre>
+<br>
+<br>
 {{/each}}
 
-
+<h1>Products</h1>
 {{#each products}}
-
-
-<h1>Update a Product</h1>
+<h5>Product: {{this.title}}</h5><pre>
 <form action="/editProduct{{this.id}}" method="GET">
-	<input type="text" value="{{this.id}}"name="id"/><br />
-	<input type="text" value="{{this.title}}"name="title"/><br />
-	<input type="text" value="{{this.price}}" name="price" /><br />
-	<input type="text" value="{{this.category}}" name="category" /><br />
-	<input type="text" value="{{this.description}}" name="description" /><br />
-	<input type="text" value="{{this.quantity}}" name="quantity" /><br />
-	<input type="text" value="{{this.image}}" name="image" /><br />
+	ID:    <input type="text" value="{{this.id}}"name="id"/><br />
+	Title: <input type="text" value="{{this.title}}"name="title"/><br />
+	Price: <input type="text" value="{{this.price}}" name="price" /><br />
+	Cat:   <input type="text" value="{{this.category}}" name="category" /><br />
+	Desc:  <input type="text" value="{{this.description}}" name="description" /><br />
+	Qty:   <input type="text" value="{{this.quantity}}" name="quantity" /><br />
+	Img:   <input type="text" value="{{this.image}}" name="image" /><br />
 	<input type="submit" value="Edit" />
-</form>
-
-ID {{this.id}}
-
-TITLE {{this.title}}
-
-PRICE {{this.price}}
-
-CATEGORY {{this.category}}
-
-DESCRIPTION {{this.description}}
-
-QUANTITY {{this.quantity}}
-
-IMAGE {{this.image}}
+</form></pre>
 
 {{/each}}
 

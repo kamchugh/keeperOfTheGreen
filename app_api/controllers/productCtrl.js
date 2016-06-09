@@ -37,7 +37,7 @@ module.exports.destroy = function(req,res){
 		}
 	})
 	.then(function(){
-		res.sendStatus(202);
+		res.redirect('admin')
 	})
 	.catch(function(err){
 		res.status(500);
