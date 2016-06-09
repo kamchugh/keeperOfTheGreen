@@ -45,9 +45,9 @@ module.exports.productPage = function(req,res) {
 					.then(function(products) {
 						console.log( "these are the products" + products);
 
-						res.render('productsPage', {user :req.user, items : items, products : products, total : total})
+						//res.render('productsPage', {user :req.user, items : items, products : products, total : total})
 
-						res.render('productsPage', {items : items, products : products, total : total, guest : guest})
+						res.render('productsPage', {user :req.user, items : items, products : products, total : total, guest : guest})
 
 					})
 			})
