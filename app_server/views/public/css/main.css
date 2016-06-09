@@ -1,10 +1,14 @@
 
+#drop {
+    margin-top: 15px;
+    margin-left: 15px;
+}
 
 
 
-
-
-
+.dropdown-menu{
+    background: transparent;
+}
 
 
 
@@ -145,7 +149,7 @@ a:focus {
 .navbar-custom .navbar-brand .navbar-toggle {
     padding: 4px 6px;
     font-size: 16px;
-    color: #fff;
+    color: #EDEDED;
 }
 
 .navbar-custom .navbar-brand .navbar-toggle:focus,
@@ -154,7 +158,7 @@ a:focus {
 }
 
 .navbar-custom a {
-    color: #fff;
+    color: #EEEEEE;
 }
 
 .navbar-custom .nav li a {
@@ -165,7 +169,7 @@ a:focus {
 
 .navbar-custom .nav li a:hover {
     outline: 0;
-    color: rgba(255,255,255,.8);
+    color: #94BEBF;
     background-color: transparent;
 }
 
@@ -180,15 +184,15 @@ a:focus {
 }
 
 .navbar-custom .nav li.active a {
-    background-color: rgba(255,255,255,.3);
+    background-color: #CACACA;
 }
 
 .navbar-custom .nav li.active a:hover {
-    color: #fff;
+    color: #CACACA;
 }
 
 .nv.top-nav-collapse {
-    color: #fff !important;
+    color: #CACACA !important;
 }
 
 
@@ -224,7 +228,7 @@ a:focus {
     height: auto;
     padding: 100px 0;
     text-align: center;
-    color: #fff;
+    color: #D8D8D8;
     background: url(../img/lavender.jpg) no-repeat bottom center scroll;
     background-color: #363E44;
     -webkit-background-size: cover;
@@ -279,7 +283,7 @@ a:focus {
 .btn-circle:hover,
 .btn-circle:focus {
     outline: 0;
-    color: #fff;
+    color: #B9BDC0;
     background: rgba(255,255,255,.1);
 }
 
@@ -360,7 +364,7 @@ a:focus {
 .about-section {
     width: 100%;
     padding: 50px 50px;
-    color: #fff;
+    color: #D1D1D1;
 
 
     -webkit-background-size: cover;
@@ -411,7 +415,7 @@ a:focus {
 .btn-default:focus {
     border: 1px solid #94BEBF;
     outline: 0;
-    color: #000;
+    color: #B7B7B7;
     background-color: #94BEBF;
 }
 
