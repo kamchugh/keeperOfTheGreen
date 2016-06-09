@@ -1,38 +1,123 @@
 You are on the products page.
 
-{{#each products}}
-
-ID {{this.id}} <br>
-
-TITLE {{this.title}} <br>
-
-PRICE {{this.price}} <br>
-
-CATEGORY {{this.category}} <br>
-
-DESCRIPTION {{this.description}} <br>
-
-QUANTITY {{this.quantity}} <br>
-
-IMAGE {{this.image}} <br>
-
-
-
-<a href="/viewProducts/createCartItem/{{this.id}}"> Add to cart </a>
-
-<br>
-<br>
-
-{{/each}}
-
-{{#each items}}
-
-PRODUCT ID {{this.ProductId}}
-
-
-PRODUCT QUANTITY {{this.item_quantity}}
-
-{{/each}}
 
 Total {{total}}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{>nav}}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+        <div class="container">
+
+            <div class="row">
+
+
+
+                <div class="col-md-12">
+
+                   
+                    <br>
+                    <br>
+                    <div class="row">
+
+       {{#each products}}
+
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+                        <img src="./img/{{this.img}}.png" alt=""/>
+                        <div class="caption">
+                            <h4 class="pull-right">${{this.price}}</h4>
+                            <h4><a href="#">{{this.title}} </a></h4>
+                            <i>Category: {{this.category}}</i>
+                            <b>Quantity: {{this.quantity}}</b>
+                            <p>{{this.description}}</p>
+                            <a href="/viewProducts/createCartItem/{{this.id}}" class="btn btn-default btn">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                {{/each}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+        <br>
+        <br>
+        <br>
+
+
+        <!-- Contact Section -->
+
+        <section id="contact" class="container download-section text-center">
+
+            <div class="row">
+                <br><br>
+                <h1 class="medium-text">Contact us today for a custom consultation</h1>
+
+                <div class="col-lg-8 col-lg-offset-2">
+                    <br>
+                    <br>
+
+                    <p>Feel free to contact us for inquiries and custom batch orders. And please like us on Facebook. We appreciate your business!</p>
+                    <br>
+                    <p><a href="mailto:feedback@startbootstrap.com">stinkygreen@dank.com</a>
+                    </p>
+                    <br>
+                    <ul class="list-inline banner-social-buttons">
+
+                        <li>
+                            <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </section>

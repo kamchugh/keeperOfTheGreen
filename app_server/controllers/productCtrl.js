@@ -111,7 +111,7 @@ module.exports.cartAddItem = function(req,res) {
 
 					console.log("onlyproductslength" + cart.dataValues.Products.length);
 					console.log("unmatchedproductslength" + unmatchedProducts.length);
-					res.render('productsPage');
+					res.redirect('productsPage');
 			// 		 })
 			 })
 		})
