@@ -38,13 +38,17 @@ module.exports.productPage = function(req,res) {
 					models.Product.findAll({
 						where : {
 							quantity : {
-								$gt : 0 
+								$gt : 0
 							}
 						},
 					})
 					.then(function(products) {
 						console.log( "these are the products" + products);
+
+						res.render('productsPage', {user :req.user, items : items, products : products, total : total})
+
 						res.render('productsPage', {items : items, products : products, total : total, guest : guest})
+
 					})
 			})
 		})
@@ -201,7 +205,7 @@ module.exports.cartAddItem = function(req,res) {
 
 
 module.exports.createOrder = function(req,res) {
-	
+
 		models.Cart.findOne({
 				where : {
 					UserUserId : req.user.user_id
@@ -229,8 +233,8 @@ module.exports.createOrder = function(req,res) {
 					 item.destroy();
 					 //{item_quantity : quantity}
 					}
-		
-				
+
+
 				})
 				.then(function(){
 					models.Order.findOne({
@@ -241,7 +245,7 @@ module.exports.createOrder = function(req,res) {
 							{all : true}
 						]
 					})
-				
+
 				.then(function(singleOrder){
 					var orderItems = [];
 							console.log("IM OUTSIDE OF THE PRODUCT LOOP")
