@@ -16,6 +16,8 @@ router.put('/updateProduct', productCtrlServer.update);
 
 router.get('/removeItem/:pid', productCtrlServer.cartRemoveItem);
 
+router.get('/addExtraItem/:pid', productCtrlServer.cartAddExtraItem);
+
 
 
 
