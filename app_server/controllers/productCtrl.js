@@ -146,6 +146,7 @@ module.exports.createOrder = function(req,res) {
 					console.log(product);
 					// this is where it's breaking
 					 order.addProduct(product, {item_quantity : quantity});
+					 product.decrement(['quantity'], {by : quantity})
 					 //{item_quantity : quantity}
 				}
 				})
