@@ -2,10 +2,23 @@ var passportConfig = require('../../config/passportConfig');
 var models = require('../../app_api/models');
 
 module.exports.productPage = function(req,res) {
-	console.log("user req object" + req.user.user_id);
+	//console.log("THIS IS THE USER REQ OBJECT" + req.user.user_id);
+	var guest = [];
+	console.log(req.user);
+	if (req.user == undefined) {
+		userId = 1;
+		guest.push(userId);
+		console.log("USER IS UNDEFINED");
+		// req.user.user_id == 1;
+	}
+	else {
+		userId = req.user.user_id;
+	}
+
+
 			models.Cart.findOne({
 				where : {
-					UserUserId : req.user.user_id
+					UserUserId : userId
 				}
 			})
 			.then(function(cart) {
@@ -31,7 +44,11 @@ module.exports.productPage = function(req,res) {
 					})
 					.then(function(products) {
 						console.log( "these are the products" + products);
+
 						res.render('productsPage', {user :req.user, items : items, products : products, total : total})
+
+						res.render('productsPage', {items : items, products : products, total : total, guest : guest})
+
 					})
 			})
 		})
