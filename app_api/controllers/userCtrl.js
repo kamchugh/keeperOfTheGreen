@@ -9,9 +9,8 @@ const saltRounds = 13;
 
 //CREATE USER
 module.exports.register = function(req,res) {
-    console.log("inside create user");
-    var rawPassword = req.body.password;
-    bcrypt.hash(rawPassword, saltRounds, function(err,hash){
+  console.log("In Register for signup");
+    bcrypt.hash(req.body.password, saltRounds, function(err,hash){
         models.User.create({
             fname : req.body.fname,
             lname : req.body.lname,
@@ -22,15 +21,24 @@ module.exports.register = function(req,res) {
             phone : req.body.phone,
             email : req.body.email,
             password : hash,
-
         })
-            .then(function(user) {
-              req.login(user,function(err){
-                return res.redirect('/');
-              })
-        });
+         .then(function(users){
+            console.log("user found when user is created " + users.user_id);
+                // models.Cart.create(cart);
+                models.Cart.create({
+
+                   UserUserId : users.user_id
+
+               })
+            })
+            .then(function(user){
+                req.login(user,function(err){
+                    return res.redirect('/');
+                })
+            });
     });
 };
+
 
 
 //SHOW ALL USERS

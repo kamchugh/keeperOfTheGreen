@@ -1,19 +1,22 @@
 module.exports = function(sequelize, DataTypes) {
   var order_item = sequelize.define('order_item', {
     // description: DataTypes.STRING
-    title: DataTypes.STRING
 
-  }, {
-    classMethods: {
-      associate: function(models) {
-        order_item.belongsTo(models.Order, {
-          onDelete: 'CASCADE',
-          foreignKey: { notNull: true }
-        });
-      }
-    }
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true
+    },
+    item_quantity : DataTypes.INTEGER,
+    // cart_id : { 
+    //   type : DataTypes.INTEGER,
+    //   allowNull : true,
+    //   unique : false
+    // },
+    
+
   });
 
   return order_item;
 }
-
