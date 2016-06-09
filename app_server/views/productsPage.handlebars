@@ -15,7 +15,7 @@
 
 
                 {{#if user}}
-                    Logged in as: {{user.fname}} {{user.lname}} 
+                    Logged in as: {{req.user.fname}} {{req.user.lname}} 
                 {{else}}
                     Logged in as: Guest
                 {{/if}} 
@@ -100,21 +100,6 @@
         <!-- /.container -->
     </nav>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <br>
 <br>
 <br>
@@ -137,6 +122,7 @@
                     <div class="row">
 
        {{#each products}}
+            
 
 
                 <div class="col-sm-4 col-lg-4 col-md-4">
@@ -146,14 +132,14 @@
                             <h4 class="pull-right">${{this.price}}</h4>
                             <h4><a href="#">{{this.title}} </a></h4>
                             <i>Category: {{this.category}}</i>
-                            <b>Quantity: {{this.quantity}}</b>
                             <p>{{this.description}}</p>
                             <a href="/viewProducts/createCartItem/{{this.id}}" class="btn btn-default btn">Add to Cart</a>
                         </div>
                     </div>
                 </div>
+            
 
-                {{/each}}
+        {{/each}}
 
 
 
