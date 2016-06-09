@@ -65,7 +65,7 @@ module.exports.checkoutPage = function(req,res) {
 			// })
 		})
 };
-module.exports.removeItem = function(req,res) {
+module.exports.cartRemoveItem = function(req,res) {
 	models.Cart.findOne({
 				where : {
 					UserUserId : req.user.user_id
@@ -83,7 +83,7 @@ module.exports.removeItem = function(req,res) {
 					}
 				})
 				.then(function(item) {
-					if (item.item_quantity == 0) {
+					if (Item.item_quantity == 0) {
 						Item.destroy()
 					}
 					console.log("item has been passed");
