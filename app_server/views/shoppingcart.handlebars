@@ -1,33 +1,52 @@
-This is the checkout page
+<h1>Shopping Cart</h1>
 
-<br> 
+<br>
+<br>
+<br>
 
 {{#each products}}
+<h4>Item:</h4>
+PRODUCT ID:  {{this.id}}<br>
 
-PRODUCT ID {{this.id}}
+CATEGORY:  {{this.category}}<br>
 
-CATEGORY {{this.category}}
+DESCRIPTION:  {{this.description}}<br>
 
-DESCRIPTION {{this.description}}
+
+QUANTITY:  {{this.dataValues.Item.dataValues.item_quantity}}<br>
+
+
+PRICE: ${{this.price}}
 
 <br>
+<br>
+
+<a href = "/viewProducts/removeItem/{{this.id}}"> Remove Item </a>
 
 {{/each}}
-<br>
-<br>
-<br>
-<br>
-
-Total cost of items : ${{total}}
-
 
 <br>
 <br>
 
-<a href = "?"> Edit cart </a>
+
+<h4>Total cost of all items : ${{total}}</h4>
+
+
+<br>
+<br>
+
+
 
 <br>
 <br>
 
 <a href = "/viewProducts/createOrder"> Checkout cart </a>
 
+<<<<<<< HEAD
+<h1>Checkout Cart</h1>
+<form action="/viewProducts/createOrder" method="PUT">
+	<input type="text" placeholder="{{user.user_id}}"name="id"/><br/>
+	<input type="submit" value="Update" />
+</form>
+=======
+>>>>>>> a965d8d53fa7c00218cbdd88745002f4a8e5386a

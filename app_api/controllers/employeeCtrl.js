@@ -4,8 +4,8 @@ var models = require('../models');
 module.exports.showAll = function(req,res){
 	models.Employee.findAll()
 		.then(function(employee){
-			res.send(employee);
-			res.render('employees', {employee: req.employee});
+			//res.send(employee);
+			res.render('employees', {employee: employee});
 		})
 		.catch(function(err){
 			console.error(err);
