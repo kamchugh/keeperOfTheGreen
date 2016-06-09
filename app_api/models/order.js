@@ -19,10 +19,7 @@ module.exports = function (sequelize, DataTypes) {
                     through : {
                         model : models.order_item
                     },
-                    // foreignKey: {
-                    //     field: "product_id",
-                    //     allowNull: false
-                    // }
+                    // foreignKey: "ProductId"
                 });
               }
             }

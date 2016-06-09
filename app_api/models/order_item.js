@@ -8,7 +8,9 @@ module.exports = function(sequelize, DataTypes) {
       autoIncrement: true,
       primaryKey: true
     },
-    item_quantity : DataTypes.INTEGER,
+    item_quantity : DataTypes.INTEGER
+    // ProductId : DataTypes.INTEGER,
+    // OrderId : DataTypes.INTEGER,
     // cart_id : { 
     //   type : DataTypes.INTEGER,
     //   allowNull : true,
