@@ -108,11 +108,13 @@ module.exports.cartAddItem = function(req,res) {
 					if (cart.dataValues.Products.length == unmatchedProducts.length ) {
 						cart.addProduct(product, {item_quantity : 1})
 					}
+					models.Product.findAll()
+						.then(function(products) {
+							res.render('productsPage', {products : products});
 
-					console.log("onlyproductslength" + cart.dataValues.Products.length);
-					console.log("unmatchedproductslength" + unmatchedProducts.length);
-					res.redirect('productsPage');
-			// 		 })
+						})
+
+
 			 })
 		})
 };

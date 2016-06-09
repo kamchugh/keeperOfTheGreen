@@ -7,7 +7,11 @@ router.get('/', categoryCtrlServer.adminPage);
 
 router.put('/updateCategory', categoryCtrlServer.update);
 
- router.get('/editCategory', categoryCtrlServer.edit);
+router.get('/editCategory', categoryCtrlServer.edit);
+
+router.get('/showAllOrders', categoryCtrlServer.showAllOrders);
+
+router.get('/viewSpecificOrder/:oid', categoryCtrlServer.viewSpecificOrder);
 
 // router.post('/categories/create', categoryCtrl.create);
 
