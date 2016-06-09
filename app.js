@@ -31,7 +31,7 @@ var passportConfig = require('./config/passportConfig');
 var handlebars = require('express-handlebars')
 .create({
     defaultLayout: '../../app_server/views/layouts/main',
-    partialsDir: "./app_server/views/partials/"
+    partialsDir: './app_server/views/partials/'
 });
 var path = require('path');
 app.set('views', path.join(__dirname, 'app_server', 'views'));
