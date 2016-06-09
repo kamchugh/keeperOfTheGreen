@@ -1,8 +1,15 @@
+
+addEventListener('load', function(e) {
+
+  console.log("update user loaded");
+
 document.updateUser.submit.addEventListener('click', function(e) {
 
 e.preventDefault();
 
 var form = e.target.parentElement;
+
+
 
 var user = {
     user_id: form.id.value,
@@ -14,6 +21,7 @@ var user = {
     zip: form.zip.value,
     phone: form.phone.value,
     email: form.email.value,
+    password : form.password.value,
 
 }
 
@@ -36,4 +44,7 @@ if (xhr.readyState === 4 && xhr.status >= 400) {
 }
 };
 xhr.send(jsonString);
+
+});
+
 });

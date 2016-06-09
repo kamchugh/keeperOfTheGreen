@@ -49,14 +49,25 @@ module.exports.profile = function(req,res) {
 };
 
 module.exports.updateUser = function(req,res) {
-		var updatedUser = req.body;
-	models.User.upsert(updatedUser)
-		.then(function(){
-			req.login(user,function(err){
-				return res.redirect('/profile');
-		})
+	bcrypt.hash(req.body.password, saltRounds, function(err,hash){
+		var user = {
+			user_id : req.body.user_id,
+			fname : req.body.fname,
+			lname : req.body.lname,
+			address : req.body.address,
+			city : req.body.city,
+			state : req.body.state,
+			zip : req.body.zip,
+			phone : req.body.phone,
+			email : req.body.email,
+			password : hash,
+		}
 
-	});
+	models.User.upsert(user)
+		.then(function(){
+
+});
+	 });
 };
 
 // module.exports.profileUpdate = function(req,res) {

@@ -1,4 +1,5 @@
 <h1>Create a category</h1>
+
 <form action="/categories" method="POST">
 	<input type="text" placeholder="id" name="id"/><br />
 	<input type="text" placeholder = "name" name="cat_name"/><br />
@@ -17,20 +18,20 @@
 	<input type="submit" value="Create" />
 </form>
 
-{{#each categories}}
+ {{#each categories}}
 
 
 <h1>Update a Category</h1>
-<form name="updateCategory">
-	<input type="hidden" placeholder="{{this.cat_id}}"name="id"/><br />
+<form action="/editCategory{{this.id}}" method ="GET">
+	<input type="text" placeholder="{{this.id}}"name="id"/><br />
 	<input type="text" value="{{this.cat_name}}"name="cat_name"/><br />
 	<input type="text" value="{{this.description}}" name="description" /><br />
-	<input type="submit" value="Update" />
+	<input type="submit"  value="Edit" />
+
 </form>
 
 ID {{this.id}}
 
-NAME {{this.cat_name}}
 
 DESCRIPTION {{this.description}}
 

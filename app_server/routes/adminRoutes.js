@@ -5,9 +5,9 @@ var categoryCtrl = require('../../app_api/controllers/categoryCtrl');
 
 router.get('/', categoryCtrlServer.adminPage);
 
-//router.get('/categories/show/all', categoryCtrl.showAll);
+router.put('/updateCategory', categoryCtrlServer.update);
 
-// router.get('/categories/show/:id', categoryCtrl.show);
+ router.get('/editCategory', categoryCtrlServer.edit);
 
 // router.post('/categories/create', categoryCtrl.create);
 
