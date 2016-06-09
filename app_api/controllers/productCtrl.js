@@ -13,13 +13,13 @@ module.exports.showAll = function(req,res){
 		});
 };
 
-// create a product 
+// create a product
 
 module.exports.create = function(req,res) {
     var product = req.body;
     models.Product.create(product)
         .then(function(product){
-            res.sendStatus(201);
+            res.redirect('admin')
         })
         .catch(function(err){
         	res.status(500);
@@ -30,10 +30,10 @@ module.exports.create = function(req,res) {
 // delete a product
 
 module.exports.destroy = function(req,res){
-	var id = req.params.id;
+	var id = req.body.id;
 	models.Product.destroy({
 		where : {
-			product_id : id
+			id : id
 		}
 	})
 	.then(function(){
@@ -48,15 +48,15 @@ module.exports.destroy = function(req,res){
 // update a product
 
 module.exports.update = function(req,res){
-	
+
     var updatedProduct = req.body;
     models.Product.upsert(updatedProduct)
         .then(function(){
             res.sendStatus(202);
         });
-}; 
+};
 
-// show a single product 
+// show a single product
 
 module.exports.show = function(req,res){
 	models.Product.findById(req.params.id, {
@@ -69,4 +69,3 @@ module.exports.show = function(req,res){
 			res.send(product);
 		})
 };
-

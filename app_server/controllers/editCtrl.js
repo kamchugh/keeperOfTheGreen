@@ -26,5 +26,15 @@ module.exports.update = function(req,res) {
 		.then(function(){
 
 });
+};
 
+module.exports.editProduct = function(req,res) {
+	console.log("edit product route");
+	var id = req.params.id;
+	models.Product.findById(req.params.id)
+
+		.then(function(product) {
+			res.render('edit', {product : product})
+			})
+			console.log(id);
 };

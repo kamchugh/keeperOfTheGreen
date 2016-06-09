@@ -82,8 +82,10 @@ app.use('/viewProducts', require('./app_server/routes/productRoutes'));
 app.use('/profileUpdate', require('./app_server/routes/loginRoutes'));
 app.use('/profile', require('./app_server/routes/loginRoutes'));
 app.use('/updateCategory', require('./app_server/routes/adminRoutes'));
-app.use('/editCategory', require('./app_server/routes/editRoutes'));
+app.use('/', require('./app_server/routes/editRoutes'));
+// app.use('/editProduct', require('./app_server/routes/editRoutes'));
 app.use('/signup', require('./app_server/routes/signupRoutes'));
+app.use('/deleteCategory', require('./app_api/routes/productRoutes'));
 
 
 //SQLIZE SYNC WITH PORT
