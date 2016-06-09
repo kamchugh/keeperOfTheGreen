@@ -1,0 +1,15 @@
+Your order is on its way! 
+
+This is your order id. Please keep this for your records. {{singleOrder.id}}
+
+{{#each orderItems}}
+<br>
+	PRODUCT ID {{this.id}}
+	PRODUCT TITLE {{this.title}}
+	QUANTITY {{this.dataValues.order_item.dataValues.item_quantity}}
+	<br>
+{{/each}}
+
+<a href="?"> Logout <a>
+
+<a href="?"> Go back products </a>

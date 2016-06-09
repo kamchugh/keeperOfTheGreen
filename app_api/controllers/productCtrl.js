@@ -27,6 +27,7 @@ module.exports.create = function(req,res) {
         });
 };
 
+
 // delete a product
 
 module.exports.destroy = function(req,res){

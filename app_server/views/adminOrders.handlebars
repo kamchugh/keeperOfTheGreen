@@ -1,0 +1,22 @@
+I'm the admin order page.
+
+{{#each orders}}
+<br>
+
+	ORDER NUMBER {{this.id}}
+	CUSTOMER ID {{this.UserUserId}}
+	<a href ="viewSpecificOrder/{{this.id}}"> View order </a>
+<br>
+
+
+{{/each}}
+
+<a href ="admin/viewOrdersByCustomer/some id thats passed in through a form"> View Orders By Customer </a>
+
+{{#each orderItems}}
+<br>
+	PRODUCT ID {{this.id}}
+	PRODUCT TITLE {{this.title}}
+	QUANTITY {{this.dataValues.order_item.dataValues.item_quantity}}
+	<br>
+{{/each}}
