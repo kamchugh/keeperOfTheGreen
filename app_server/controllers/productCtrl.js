@@ -119,11 +119,6 @@ module.exports.cartAddItem = function(req,res) {
 
 
 module.exports.createOrder = function(req,res) {
-	models.Order.create({  
-			order_title : "order title",        
-           	UserUserId : req.user.user_id, 
-        })
-
 		models.Cart.findOne({
 				where : {
 					UserUserId : req.user.user_id
@@ -133,22 +128,25 @@ module.exports.createOrder = function(req,res) {
 					]
 			})
 			.then(function(cart) {
-				models.Order.findOne({
-					where : {
-						UserUserId : cart.dataValues.UserUserId
-					}
-				})
+					models.Order.create({  
+					order_title : "order title",        
+		           	UserUserId : req.user.user_id, 
+		        })
 				.then(function(order) {
 					console.log("ORDER ID" + order.UserUserId);
 				for(var i = 0; i < cart.dataValues.Products.length; i ++) {
 					 var quantity = cart.dataValues.Products[i].dataValues.Item.dataValues.item_quantity;
+					 console.log('PRODUCTS IN CART:' + cart.dataValues.Products[i]);
 					 var product = cart.dataValues.Products[i];
+					 var item = cart.dataValues.Products[i].dataValues.Item;
 					console.log(product);
 					// this is where it's breaking 
 					 order.addProduct(product, {item_quantity : quantity});
 					 product.decrement(['quantity'], {by : quantity})
+					 item.destroy();
 					 //{item_quantity : quantity}
 				}
+				res.render('shoppingcart');
 				})
 
 			})
