@@ -79,6 +79,7 @@ app.use('/product', require('./app_api/routes/productRoutes'));
 app.use('/categories', require('./app_api/routes/categoryRoutes'));
 app.use('/admin', require('./app_server/routes/adminRoutes'));
 app.use('/viewProducts', require('./app_server/routes/productRoutes'));
+app.use('/employee', require('./app_api/routes/employeeRoutes'));
 app.use('/profileUpdate', require('./app_server/routes/loginRoutes'));
 app.use('/profile', require('./app_server/routes/loginRoutes'));
 app.use('/updateCategory', require('./app_server/routes/adminRoutes'));
@@ -87,7 +88,6 @@ app.use('/', require('./app_server/routes/editRoutes'));
 app.use('/signup', require('./app_server/routes/signupRoutes'));
 app.use('/deleteCategory', require('./app_api/routes/productRoutes'));
 app.use('/', require('./app_api/routes/productRoutes'));
-
 
 //SQLIZE SYNC WITH PORT
 models.sequelize.sync()
