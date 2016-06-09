@@ -1,10 +1,12 @@
 I'm the admin order page.
 
 {{#each orders}}
+<br>
 
 	ORDER NUMBER {{this.id}}
 	CUSTOMER ID {{this.UserUserId}}
 	<a href ="viewSpecificOrder/{{this.id}}"> View order </a>
+<br>
 
 
 {{/each}}
