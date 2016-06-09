@@ -37,10 +37,11 @@
                     </li>
                    
                    
-
+                    {{#unless guest}}
                         <li>
                     <a href="/viewProducts/checkout"> Cart <span id="chkNum">({{total}})</span></a>
                         </li>
+                    {{/unless}}
 
 
                  {{#if user}}
@@ -124,6 +125,7 @@
                     <br>
                     <br>
                     <div class="row">
+    {{#if guest}}                
 
        {{#each products}}
             
@@ -137,13 +139,38 @@
                             <h4><a href="#">{{this.title}} </a></h4>
                             <i>Category: {{this.category}}</i>
                             <p>{{this.description}}</p>
-                            <a href="/viewProducts/createCartItem/{{this.id}}" class="btn btn-default btn">Add to Cart</a>
+                            
                         </div>
                     </div>
                 </div>
             
 
         {{/each}}
+
+       {{/if}} 
+       {{#unless guest}}
+
+              {{#each products}}
+            
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+                        <img src="./img/{{this.img}}.png" alt=""/>
+                        <div class="caption">
+                            <h4 class="pull-right">${{this.price}}</h4>
+                            <h4><a href="#">{{this.title}} </a></h4>
+                            <i>Category: {{this.category}}</i>
+                            <p>{{this.description}}</p>
+                            
+                            <a href="/viewProducts/createCartItem/{{this.id}}" class="btn btn-default btn">Add to Cart</a>
+
+
+                        </div>
+                    </div>
+                </div>
+            
+
+        {{/each}}
+    {{/unless}}
 
 
 
