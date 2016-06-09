@@ -31,19 +31,15 @@ module.exports = function(sequelize, DataTypes) {
                     //     field: "cart_id",
                     //     unique : false   
                     // }
-                })
-                         Product.belongsToMany(models.Order, {
+                });
+                Product.belongsToMany(models.Order, {
                     through : {
                         model : models.order_item
                     },
                     
-
                     // this was it!
-                    // foreignKey: {
-                    //     field: "cart_id",
-                    //     unique : false   
-                    // }
-                })
+                    // foreignKey: 'OrderId'  
+                });
                 Product.hasMany(models.product_category)
               }
             }
