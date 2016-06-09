@@ -1,3 +1,22 @@
+<h1>Add an Employee</h1>
+
+<form action="/employee" method="POST">
+	<input type="text" placeholder="position"name="position"/><br />
+	<div>Set Employee to Administrator?</div>
+	<input type = "radio" name = "admin" value = "FALSE" checked/>No<br/>
+	<input type = "radio" name = "admin" value = "TRUE"/>Yes<br/>
+	<input type = "number" name = "UserUserId" value = "" placeholder = "User "ID"/>
+
+	<input type="submit" value="Create" />
+</form>
+
+
+<form action ="/employee" method = "GET">
+	<input type = "submit" value = "List All Employees"/>
+</form>
+{{#employees}}
+	{{this.is}}
+{{/employees}}
 <h1>Create a category</h1>
 <form action="/categories" method="POST">
 	<input type="text" placeholder="id" name="id"/><br />
@@ -5,6 +24,8 @@
 	<input type="text" placeholder = "description" name="description" /><br />
 	<input type="submit" value="Create" />
 </form>
+
+
 
 <h1>Create a Product</h1>
 <form action="/product" method="POST">
