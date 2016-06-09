@@ -1,14 +1,68 @@
-<h1>Add an Employee</h1>
+
+
+<div class = "container">
+		<h1>Add an Employee</h1><pre>
+		<form action="/employee" method="POST">
+			
+				<input type="text" placeholder="position"name="position"/><br />
+				<h6>Set Employee to Administrator?</h6>
+				<input type = "radio" name = "admin" value = "FALSE" checked/>No<br/>
+				<input type = "radio" name = "admin" value = "TRUE"/>Yes<br/>
+				<input type = "number" name = "UserUserId" value = "" placeholder = "User "ID" min = "0"/>
+			
+			
+				<input type="submit" value="Create" />
+			
+		</form>
 
 <form action="/employee" method="POST">
 	<input type="text" placeholder="position"name="position"/><br />
 	<div>Set Employee to Administrator?</div>
 	<input type = "radio" name = "admin" value = "FALSE" checked/>No<br/>
 	<input type = "radio" name = "admin" value = "TRUE"/>Yes<br/>
-	<input type = "number" name = "UserUserId" value = "" placeholder = "User "ID"/>
+	<input type = "number" name = "UserUserId" value = "" placeholder = User "ID"/>
 
-	<input type="submit" value="Create" />
-</form>
+
+
+
+		<form action ="/employee" method = "GET">
+			
+				<input type = "submit" value = "List All Employees"/>
+			            
+			
+		</form>
+		</pre>
+	
+<div class = "row"
+		<div class = "col-sm-6">
+		<h1>Create a category</h1><pre>
+		<form action="/categories" method="POST">
+			<input type="text" placeholder="id" name="id"/><br />
+			<input type="text" placeholder = "name" name="cat_name"/><br />
+			<input type="text" placeholder = "description" name="description" /><br />
+			<input type="submit" value="Create" />
+		</form></pre>
+		<br>
+		<br>
+		<br>
+	</div>
+	<div class = "col-sm-6">
+		<h1>Create a Product</h1><pre>
+		<form action="/product" method="POST">
+			<input type="text" placeholder="title"name="title"/><br />
+			<input type="text" placeholder="price" name="price" /><br />
+			<input type="text" placeholder="category" name="category" /><br />
+			<input type="text" placeholder="description" name="description" /><br />
+			<input type="text" placeholder="quantity" name="quantity" /><br />
+			<input type="text" placeholder="img" name="img" /><br />
+			<input type="submit" value="Create" />
+		</form></pre>
+		<br>
+		<br>
+		<br>
+		<br>
+	</div>
+</div>
 
 
 <form action ="/employee" method = "GET">
@@ -28,6 +82,12 @@
 
 
 
+<br>
+<br>
+<br>
+
+
+
 <h1>Create a Product</h1>
 <form action="/product" method="POST">
 	<input type="text" placeholder="title"name="title"/><br />
@@ -42,6 +102,7 @@
 <br>
 <br>
 <br>
+
 
 <h1>Categories</h1>
  {{#each categories}}
@@ -72,4 +133,8 @@
 
 {{/each}}
 
+</div>
+
+
 <a href = "admin/showAllOrders"> Show all placed orders </a>
+

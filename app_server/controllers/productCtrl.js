@@ -65,6 +65,66 @@ module.exports.checkoutPage = function(req,res) {
 			// })
 		})
 };
+module.exports.cartRemoveItem = function(req,res) {
+	models.Cart.findOne({
+				where : {
+					UserUserId : req.user.user_id
+				},
+				include : [
+						models.Product
+					]
+			})
+			.then(function(cart) {
+				models.Product.findById(req.params.pid)
+				.then (function(product) {
+				models.Item.findOne( {
+					where : {
+						ProductId : product.id
+					}
+				})
+				.then(function(item) {
+					if (item.item_quantity == 0) {
+						Item.destroy()
+					}
+					console.log("item has been passed");
+					console.log("ITEM QUANTITY" + item.item_quantity);
+					// item.update({'item_quantity' : item_quantity + 1 })
+					item.decrement('item_quantity');
+
+					res.redirect('/viewProducts/checkout');
+				})
+			 })
+		})
+}
+module.exports.cartAddExtraItem = function(req,res) {
+	models.Cart.findOne({
+				where : {
+					UserUserId : req.user.user_id
+				},
+				include : [
+						models.Product
+					]
+			})
+			.then(function(cart) {
+				models.Product.findById(req.params.pid)
+				.then (function(product) {
+				models.Item.findOne( {
+					where : {
+						ProductId : product.id
+					}
+				})
+				.then(function(item) {
+
+					console.log("item has been passed");
+					console.log("ITEM QUANTITY" + item.item_quantity);
+					// item.update({'item_quantity' : item_quantity + 1 })
+					item.increment('item_quantity');
+
+					res.redirect('/viewProducts/checkout');
+				})
+			 })
+		})
+}
 
 module.exports.cartAddItem = function(req,res) {
 	models.Cart.findOne({
@@ -110,10 +170,16 @@ module.exports.cartAddItem = function(req,res) {
 					}
 					models.Product.findAll()
 						.then(function(products) {
-							res.render('productsPage', {products : products});
+							// res.render('productsPage', {products : products});
 
 						})
 
+
+
+					console.log("onlyproductslength" + cart.dataValues.Products.length);
+					console.log("unmatchedproductslength" + unmatchedProducts.length);
+					res.redirect('/viewProducts');
+			// 		 })
 
 			 })
 		})
@@ -131,9 +197,9 @@ module.exports.createOrder = function(req,res) {
 					]
 			})
 			.then(function(cart) {
-					models.Order.create({  
-					order_title : "order title",        
-		           	UserUserId : req.user.user_id, 
+					models.Order.create({
+					order_title : "order title",
+		           	UserUserId : req.user.user_id,
 		        })
 				.then(function(order) {
 					console.log("ORDER ID" + order.UserUserId);

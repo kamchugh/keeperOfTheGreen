@@ -1,3 +1,19 @@
-{{#each employee}}
-	{{this.id}}
-{{/each}}
+<div class = "container">
+	<div class = "row text-center">
+		<h1>Employees</h1>
+	</div>
+	<table class = "table">
+	<tr>
+		<th>Employee ID</th>
+		<th>Admin?</th>
+		<th>User ID</th>
+	</tr>
+	{{#each employee}}
+		<tr>
+			<td>{{this.id}}</td>
+			<td>{{this.is_admin}}</td>
+			<td>{{this.UserUserId}}</td>
+		</tr>
+	{{/each}}
+	</table>
+</div>
