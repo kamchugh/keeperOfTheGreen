@@ -53,7 +53,7 @@ module.exports.update = function(req,res){
     var updatedCategory = req.body;
     models.Category.upsert(updatedCategory)
         .then(function(){
-            res.sendStatus(202);
+            res.redirect('/admin')
         });
 };
 

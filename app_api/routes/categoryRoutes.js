@@ -10,6 +10,6 @@ router.post('/', categoryCtrl.create);
 
 router.delete('/:id', categoryCtrl.destroy);
 
-router.put('/:id', categoryCtrl.update);
+router.put('/updateCategory', categoryCtrl.update);
 
 module.exports = router;
