@@ -47,13 +47,21 @@ module.exports.destroy = function(req,res){
 
 // update a product
 
-module.exports.update = function(req,res){
+module.exports.update = function(req,res) {
+		var prod = {
+			id : req.body.id,
+			title : req.body.title,
+			price : req.body.price,
+			category : req.body.category,
+			description : req.body.description,
+			quantity : req.body.quantity,
+			img : req.body.img,
+		}
 
-    var updatedProduct = req.body;
-    models.Product.upsert(updatedProduct)
-        .then(function(){
-            res.sendStatus(202);
-        });
+	models.Product.upsert(prod)
+		.then(function(){
+
+});
 };
 
 // show a single product

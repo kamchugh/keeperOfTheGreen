@@ -10,6 +10,6 @@ router.post('/', productCtrl.create);
 
 router.delete('/', productCtrl.destroy);
 
-router.put('/', productCtrl.update);
+router.put('/updateProduct', productCtrl.update);
 
 module.exports = router;

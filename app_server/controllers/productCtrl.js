@@ -7,7 +7,7 @@ module.exports.productPage = function(req,res) {
 				where : {
 					UserUserId : req.user.user_id
 				}
-			}) 
+			})
 			.then(function(cart) {
 				console.log("cart user id" + cart.UserUserId);
 				models.Item.findAll( {
@@ -27,7 +27,7 @@ module.exports.productPage = function(req,res) {
 						console.log( "these are the products" + products);
 						res.render('productsPage', {items : items, products : products, total : total})
 					})
-			})	
+			})
 		})
 };
 
@@ -40,12 +40,12 @@ module.exports.checkoutPage = function(req,res) {
 				include : [
 						models.Product
 					]
-			}) 
+			})
 			.then(function(cart) {
 				console.log(cart.dataValues.Products[0].dataValues);
 				console.log("quantity of 0" + cart.dataValues.Products[0].dataValues.Item.dataValues.item_quantity);
 				console.log("price of 0" + cart.dataValues.Products[0].dataValues.price);
-	
+
 					var quantity = 0;
 					var price = 0;
 					var total = 0;
@@ -57,12 +57,12 @@ module.exports.checkoutPage = function(req,res) {
 						console.log("total in " + i + "iteration of the looop" + total);
 						console.log("item quantity value I'M IN THE LOOP " + cart.dataValues.Products[i].dataValues.Item.dataValues.item_quantity);
 					}
-					
+
 
 						//console.log( "these are the products" + products);
 						res.render('shoppingcart', {products : cart.dataValues.Products, quantity : quantity, price : price, total : total})
 			// 		 })
-			// })	
+			// })
 		})
 };
 
@@ -75,11 +75,11 @@ module.exports.cartAddItem = function(req,res) {
 						models.Product
 					]
 			})
-			.then(function(cart) { 
+			.then(function(cart) {
 				models.Product.findById(req.params.pid)
 				.then (function(product) {
 					console.log(cart.dataValues.Products);
-					//if not in cart 
+					//if not in cart
 					var unmatchedProducts = [];
 					for(var i = 0; i < cart.dataValues.Products.length; i ++) {
 						if(cart.dataValues.Products[i].dataValues.id != product.id) {
@@ -113,15 +113,15 @@ module.exports.cartAddItem = function(req,res) {
 					console.log("unmatchedproductslength" + unmatchedProducts.length);
 					res.render('productsPage');
 			// 		 })
-			 })	
+			 })
 		})
 };
 
 
 module.exports.createOrder = function(req,res) {
-	models.Order.create({  
-			order_title : "order title",        
-           	UserUserId : req.user.user_id, 
+	models.Order.create({
+			order_title : "order title",
+           	UserUserId : req.user.user_id,
         })
 
 		models.Cart.findOne({
@@ -144,7 +144,7 @@ module.exports.createOrder = function(req,res) {
 					 var quantity = cart.dataValues.Products[i].dataValues.Item.dataValues.item_quantity;
 					 var product = cart.dataValues.Products[i];
 					console.log(product);
-					// this is where it's breaking 
+					// this is where it's breaking
 					 order.addProduct(product, {item_quantity : quantity});
 					 //{item_quantity : quantity}
 				}
@@ -156,3 +156,25 @@ module.exports.createOrder = function(req,res) {
 };
 
 
+
+
+
+
+
+
+module.exports.update = function(req,res) {
+		var prod = {
+			id : req.body.id,
+			title : req.body.title,
+			price : req.body.price,
+			category : req.body.category,
+			description : req.body.description,
+			quantity : req.body.quantity,
+			img : req.body.img,
+		}
+
+	models.Product.upsert(prod)
+		.then(function(){
+
+});
+};

@@ -53,7 +53,7 @@
     padding: 40px 40px 5px 40px;
     min-height: 70px;
     background: #50606c;
-    
+
 }
 
 #img-combo {
@@ -68,7 +68,7 @@ body {
     width: 100%;
     height: 100%;
     font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: #fff;
+    color: black;
     background-color: #fff;
 }
 
@@ -204,9 +204,9 @@ a:focus {
         padding: 0;
         border-bottom: 0px solid transparent;
         background: #363E44;
-     
-        
-        
+
+
+
     }
     .navbar-custom a {
         color: #50606c;
@@ -296,7 +296,7 @@ a:focus {
     -moz-animation-timing-function: linear;
 }
 
-@-webkit-keyframes pulse {    
+@-webkit-keyframes pulse {
     0% {
         -webkit-transform: scale(1);
         transform: scale(1);
@@ -313,7 +313,7 @@ a:focus {
     }
 }
 
-@-moz-keyframes pulse {    
+@-moz-keyframes pulse {
     0% {
         -moz-transform: scale(1);
         transform: scale(1);
@@ -338,8 +338,8 @@ a:focus {
 .download-section {
     width: 100%;
     color: #50606c;
-   
-   
+
+
     background-color: #fff;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -356,8 +356,8 @@ a:focus {
     width: 100%;
     padding: 50px 50px;
     color: #fff;
-    
-  
+
+
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -373,7 +373,7 @@ a:focus {
 @media(min-width:767px) {
     .content-section {
         padding-top: 50px;
-        
+
     }
 
     .download-section {
