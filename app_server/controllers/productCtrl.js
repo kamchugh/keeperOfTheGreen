@@ -65,7 +65,7 @@ module.exports.checkoutPage = function(req,res) {
 			// })
 		})
 };
-module.exports.removeItem = function(req,res) {
+module.exports.cartRemoveItem = function(req,res) {
 	models.Cart.findOne({
 				where : {
 					UserUserId : req.user.user_id
@@ -90,6 +90,35 @@ module.exports.removeItem = function(req,res) {
 					console.log("ITEM QUANTITY" + item.item_quantity);
 					// item.update({'item_quantity' : item_quantity + 1 })
 					item.decrement('item_quantity');
+
+					res.redirect('/viewProducts/checkout');
+				})
+			 })
+		})
+}
+module.exports.cartAddExtraItem = function(req,res) {
+	models.Cart.findOne({
+				where : {
+					UserUserId : req.user.user_id
+				},
+				include : [
+						models.Product
+					]
+			})
+			.then(function(cart) {
+				models.Product.findById(req.params.pid)
+				.then (function(product) {
+				models.Item.findOne( {
+					where : {
+						ProductId : product.id
+					}
+				})
+				.then(function(item) {
+
+					console.log("item has been passed");
+					console.log("ITEM QUANTITY" + item.item_quantity);
+					// item.update({'item_quantity' : item_quantity + 1 })
+					item.increment('item_quantity');
 
 					res.redirect('/viewProducts/checkout');
 				})
@@ -141,7 +170,7 @@ module.exports.cartAddItem = function(req,res) {
 					}
 					models.Product.findAll()
 						.then(function(products) {
-							res.render('productsPage', {products : products});
+							// res.render('productsPage', {products : products});
 
 						})
 
@@ -158,7 +187,7 @@ module.exports.cartAddItem = function(req,res) {
 
 
 module.exports.createOrder = function(req,res) {
-	var orderItems = [];
+	
 		models.Cart.findOne({
 				where : {
 					UserUserId : req.user.user_id
@@ -185,23 +214,34 @@ module.exports.createOrder = function(req,res) {
 					 product.decrement(['quantity'], {by : quantity})
 					 item.destroy();
 					 //{item_quantity : quantity}
-				}
-				models.Order.findOne({
-					where : {
-						id : order.id
-					},
-					include : [
-					models.Product
-					]
+					}
+		
+				
 				})
+				.then(function(){
+					models.Order.findOne({
+						where : {
+							UserUserId : req.user.user_id
+						},
+						include : [
+							{all : true}
+						]
+					})
+				
 				.then(function(singleOrder){
+					var orderItems = [];
+							console.log("IM OUTSIDE OF THE PRODUCT LOOP")
+							console.log(singleOrder.dataValues)
+							console.log(singleOrder.id);
 						for(var i = 0; i < singleOrder.dataValues.Products.length; i ++) {
+							console.log("I GET INTO THE PRODUCT LOOP")
 						var product = singleOrder.dataValues.Products[i];
 						orderItems.push(product);
-						console.log("ORDER ITEM QUANTITY")
+						console.log("CHECKING THE ORDER ITEM LIST");
+						console.log(orderItems[0]);
 						console.log(singleOrder.dataValues.Products[i].order_item.dataValues.item_quantity);
 					}
-					res.render('checkoutConfirmation', {orderItems : orderItems, singleOrder : singleOrder});
+					res.render('checkoutConfirmation', {singleOrder : singleOrder});
 					})
 
 				})
