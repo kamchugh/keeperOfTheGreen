@@ -65,6 +65,37 @@ module.exports.checkoutPage = function(req,res) {
 			// })
 		})
 };
+module.exports.removeItem = function(req,res) {
+	models.Cart.findOne({
+				where : {
+					UserUserId : req.user.user_id
+				},
+				include : [
+						models.Product
+					]
+			})
+			.then(function(cart) {
+				models.Product.findById(req.params.pid)
+				.then (function(product) {
+				models.Item.findOne( {
+					where : {
+						ProductId : product.id
+					}
+				})
+				.then(function(item) {
+					if (item.item_quantity == 0) {
+						Item.destroy()
+					}
+					console.log("item has been passed");
+					console.log("ITEM QUANTITY" + item.item_quantity);
+					// item.update({'item_quantity' : item_quantity + 1 })
+					item.decrement('item_quantity');
+
+					res.redirect('/viewProducts/checkout');
+				})
+			 })
+		})
+}
 
 module.exports.cartAddItem = function(req,res) {
 	models.Cart.findOne({
@@ -111,7 +142,7 @@ module.exports.cartAddItem = function(req,res) {
 
 					console.log("onlyproductslength" + cart.dataValues.Products.length);
 					console.log("unmatchedproductslength" + unmatchedProducts.length);
-					res.render('productsPage');
+					res.redirect('/viewProducts');
 			// 		 })
 			 })
 		})

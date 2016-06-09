@@ -13,7 +13,7 @@ CATEGORY:  {{this.category}}<br>
 DESCRIPTION:  {{this.description}}<br>
 
 
- Quantity:  {{this.item_quantity}}<br>
+QUANTITY:  {{this.dataValues.Item.dataValues.item_quantity}}<br>
 
 
 PRICE: ${{this.price}}
@@ -21,9 +21,10 @@ PRICE: ${{this.price}}
 <br>
 <br>
 
-<a href = "?"> Edit Item </a>
+<a href = "/viewProducts/removeItem/{{this.id}}"> Remove Item </a>
 
 {{/each}}
+
 <br>
 <br>
 
