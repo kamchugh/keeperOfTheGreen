@@ -8,6 +8,8 @@
 <h4>Item:</h4>
 PRODUCT ID:  {{this.id}}<br>
 
+TITLE: {{this.title}}<br>
+
 CATEGORY:  {{this.category}}<br>
 
 DESCRIPTION:  {{this.description}}<br>
@@ -21,7 +23,8 @@ PRICE: ${{this.price}}
 <br>
 <br>
 
-<a href = "/viewProducts/removeItem/{{this.id}}"> Remove Item </a>
+<a href = "/viewProducts/removeItem/{{this.id}}"> Remove One {{this.title}} </a>
+<a href = "/viewProducts/removeItem/{{this.id}}"> Add One {{this.title}} </a>
 
 {{/each}}
 

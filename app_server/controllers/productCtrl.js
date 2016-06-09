@@ -83,7 +83,7 @@ module.exports.cartRemoveItem = function(req,res) {
 					}
 				})
 				.then(function(item) {
-					if (Item.item_quantity == 0) {
+					if (item.item_quantity == 0) {
 						Item.destroy()
 					}
 					console.log("item has been passed");
@@ -141,7 +141,7 @@ module.exports.cartAddItem = function(req,res) {
 					}
 					models.Product.findAll()
 						.then(function(products) {
-							res.render('productsPage', {products : products});
+							// res.render('productsPage', {products : products});
 
 						})
 
