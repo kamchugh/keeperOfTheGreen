@@ -36,16 +36,20 @@
                         <a href ="viewProducts"> Shop</a>
                     </li>
 
-                    
+                        <li>
+                    <a href="/viewProducts/checkout"> View My Cart </a>
+                        </li>
 
                 {{#if user}}
-                    <li>
-                    <form action="/logout" method="GET"> <input type="submit" value="Log Out"></form>
-                   </li>
+                  
 
                     <li>
                     <a href="profile">Profile</a>
                     </li>
+
+                      <li>
+                    <a href="/logout">Log Out</a>
+                   </li>
 
                 {{else}}
                     <li>
