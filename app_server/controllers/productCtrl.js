@@ -128,9 +128,9 @@ module.exports.createOrder = function(req,res) {
 					]
 			})
 			.then(function(cart) {
-					models.Order.create({  
-					order_title : "order title",        
-		           	UserUserId : req.user.user_id, 
+					models.Order.create({
+					order_title : "order title",
+		           	UserUserId : req.user.user_id,
 		        })
 				.then(function(order) {
 					console.log("ORDER ID" + order.UserUserId);

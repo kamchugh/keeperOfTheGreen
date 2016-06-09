@@ -1,30 +1,40 @@
-This is the checkout page
-
-<br> 
-
-{{#each products}}
-
-PRODUCT ID {{this.id}}
-
-CATEGORY {{this.category}}
-
-DESCRIPTION {{this.description}}
+<h1>Shopping Cart</h1>
 
 <br>
+<br>
+<br>
+
+{{#each products}}
+<h4>Item:</h4>
+PRODUCT ID:  {{this.id}}<br>
+
+CATEGORY:  {{this.category}}<br>
+
+DESCRIPTION:  {{this.description}}<br>
+
+
+ Quantity:  {{this.item_quantity}}<br>
+
+
+PRICE: ${{this.price}}
+
+<br>
+<br>
+
+<a href = "?"> Edit Item </a>
 
 {{/each}}
 <br>
 <br>
+
+
+<h4>Total cost of all items : ${{total}}</h4>
+
+
 <br>
 <br>
 
-Total cost of items : ${{total}}
 
-
-<br>
-<br>
-
-<a href = "?"> Edit cart </a>
 
 <br>
 <br>
