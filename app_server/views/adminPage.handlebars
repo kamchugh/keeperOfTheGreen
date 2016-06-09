@@ -9,28 +9,13 @@
 				<input type = "radio" name = "admin" value = "FALSE" checked/>No<br/>
 				<input type = "radio" name = "admin" value = "TRUE"/>Yes<br/>
 				<input type = "number" name = "UserUserId" value = "" placeholder = "User "ID" min = "0"/>
-			
-			
 				<input type="submit" value="Create" />
 			
 		</form>
 
-<form action="/employee" method="POST">
-	<input type="text" placeholder="position"name="position"/><br />
-	<div>Set Employee to Administrator?</div>
-	<input type = "radio" name = "admin" value = "FALSE" checked/>No<br/>
-	<input type = "radio" name = "admin" value = "TRUE"/>Yes<br/>
-	<input type = "number" name = "UserUserId" value = "" placeholder = User "ID"/>
-
-
-
-
-		<form action ="/employee" method = "GET">
-			
-				<input type = "submit" value = "List All Employees"/>
-			            
-			
-		</form>
+<form action ="/employee" method = "GET">
+	<input type = "submit" value = "List All Employees"/>
+</form>
 		</pre>
 	
 <div class = "row"
@@ -65,20 +50,16 @@
 </div>
 
 
-<form action ="/employee" method = "GET">
-	<input type = "submit" value = "List All Employees"/>
-</form>
-{{#employees}}
-	{{this.is}}
-{{/employees}}
-<h1>Create a category</h1>
+
+
+<h1>Create a category</h1><pre>
 
 <form action="/categories" method="POST">
 	<input type="text" placeholder="id" name="id"/><br />
 	<input type="text" placeholder = "name" name="cat_name"/><br />
 	<input type="text" placeholder = "description" name="description" /><br />
 	<input type="submit" value="Create" />
-</form>
+</form></pre>
 
 
 
@@ -88,7 +69,7 @@
 
 
 
-<h1>Create a Product</h1>
+<h1>Create a Product</h1><pre>
 <form action="/product" method="POST">
 	<input type="text" placeholder="title"name="title"/><br />
 	<input type="text" placeholder="price" name="price" /><br />
@@ -97,7 +78,7 @@
 	<input type="text" placeholder="quantity" name="quantity" /><br />
 	<input type="text" placeholder="img" name="img" /><br />
 	<input type="submit" value="Create" />
-</form>
+</form></pre>
 <br>
 <br>
 <br>
