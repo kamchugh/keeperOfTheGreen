@@ -20,7 +20,7 @@ module.exports.create = function(req,res) {
     var category = req.body;
     models.Category.create(category)
         .then(function(category){
-            res.sendStatus(201);
+          res.redirect('/admin');
         })
         .catch(function(err){
         	res.status(500);
@@ -53,9 +53,9 @@ module.exports.update = function(req,res){
     var updatedCategory = req.body;
     models.Category.upsert(updatedCategory)
         .then(function(){
-            res.sendStatus(202);
+            res.redirect('/admin')
         });
-}; 
+};
 
 // show a single category
 
@@ -66,4 +66,3 @@ module.exports.show = function(req,res){
 			res.send(category);
 		})
 };
-

@@ -1,0 +1,38 @@
+This is the checkout page
+
+<br> 
+
+{{#each products}}
+
+PRODUCT ID {{this.id}}
+
+CATEGORY {{this.category}}
+
+DESCRIPTION {{this.description}}
+
+<br>
+
+{{/each}}
+<br>
+<br>
+<br>
+<br>
+
+Total cost of items : ${{total}}
+
+
+<br>
+<br>
+
+<a href = "?"> Edit cart </a>
+
+<br>
+<br>
+
+<a href = "/viewProducts/createOrder"> Checkout cart </a>
+
+<h1>Checkout Cart</h1>
+<form action="/viewProducts/createOrder" method="PUT">
+	<input type="text" placeholder="{{user.user_id}}"name="id"/><br/>
+	<input type="submit" value="Update" />
+</form>

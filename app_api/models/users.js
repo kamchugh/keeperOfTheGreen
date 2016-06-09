@@ -122,7 +122,7 @@ module.exports = function(sequelize, DataTypes) {
                 User.hasOne(models.Cart)
                 User.hasMany(models.Order)
             }
-           
+
         }
     }
 

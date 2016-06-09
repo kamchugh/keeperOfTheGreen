@@ -1,42 +1,32 @@
-
-
-module.exports = function(sequelize, DataTypes) {
-    console.log("inside models/cart/define")
+module.exports = function (sequelize, DataTypes) {
+    console.log("inside models/order/define")
 
     var Order = sequelize.define("Order", {
 
 
-        // order_id : {
-        //     type : DataTypes.INTEGER,
-        //     allowNull : false,
-        //     autoIncrement: true,
-        //     primaryKey: true
-        // },
-
-
-        order_title : {
-            type : DataTypes.STRING,
-            allowNull : false
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true
         }
 
     },
-
-                                {
+    {
         classMethods: {
             associate : function(models) {
-                Order.belongsTo(models.User, {
-                    onDelete : "CASCADE",
-                    foreignKey : {
-                        allowNull : false
-                    }
+                Order.belongsToMany(models.Product, {
+                    through : {
+                        model : models.order_item
+                    },
+                    // foreignKey: {
+                    //     field: "product_id",
+                    //     allowNull: false
+                    // }
                 });
-            },
-            associate : function(models) {
-                Order.hasMany(models.order_item)
+              }
             }
-        }
-    }
-                               );
+    });
 
 
 

@@ -22,7 +22,7 @@ module.exports.register = function(req,res) {
 			password : hash,
 		})
 		 .then(function(users){
-		 	console.log("user " + users.user_id);
+		 	console.log("user found when user is created " + users.user_id);
                 // models.Cart.create(cart);
                 models.Cart.create({
 
