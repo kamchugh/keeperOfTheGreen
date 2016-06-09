@@ -22,7 +22,13 @@ module.exports.productPage = function(req,res) {
 						console.log(items[i]);
 					}
 					console.log("total" + total);
-					models.Product.findAll()
+					models.Product.findAll({
+						where : {
+							quantity : {
+								$gt : 0 
+							}
+						},
+					})
 					.then(function(products) {
 						console.log( "these are the products" + products);
 						res.render('productsPage', {items : items, products : products, total : total})
@@ -42,10 +48,6 @@ module.exports.checkoutPage = function(req,res) {
 					]
 			})
 			.then(function(cart) {
-				console.log(cart.dataValues.Products[0].dataValues);
-				console.log("quantity of 0" + cart.dataValues.Products[0].dataValues.Item.dataValues.item_quantity);
-				console.log("price of 0" + cart.dataValues.Products[0].dataValues.price);
-
 					var quantity = 0;
 					var price = 0;
 					var total = 0;
@@ -58,11 +60,8 @@ module.exports.checkoutPage = function(req,res) {
 						console.log("item quantity value I'M IN THE LOOP " + cart.dataValues.Products[i].dataValues.Item.dataValues.item_quantity);
 					}
 
-
-						//console.log( "these are the products" + products);
 						res.render('shoppingcart', {products : cart.dataValues.Products, quantity : quantity, price : price, total : total})
-			// 		 })
-			// })
+
 		})
 };
 module.exports.cartRemoveItem = function(req,res) {
@@ -83,13 +82,15 @@ module.exports.cartRemoveItem = function(req,res) {
 					}
 				})
 				.then(function(item) {
-					if (item.item_quantity == 0) {
-						Item.destroy()
-					}
 					console.log("item has been passed");
 					console.log("ITEM QUANTITY" + item.item_quantity);
 					// item.update({'item_quantity' : item_quantity + 1 })
 					item.decrement('item_quantity');
+					console.log("DECREMENTED NUMBER: " + item.dataValues.item_quantity);
+					if(item.dataValues.item_quantity == 1) {
+						console.log("IN 0 IF STATEMENT");
+						item.destroy();
+					}
 
 					res.redirect('/viewProducts/checkout');
 				})
