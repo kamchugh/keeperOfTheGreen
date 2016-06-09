@@ -42,15 +42,15 @@ DESCRIPTION {{this.description}}
 
 
 <h1>Update a Product</h1>
-<form action="/categories/{{this.id}}" method="PUT">
-	<input type="text" placeholder="{{this.product_id}}"name="id"/><br />
+<form action="/editProduct{{this.id}}" method="GET">
+	<input type="text" value="{{this.id}}"name="id"/><br />
 	<input type="text" value="{{this.title}}"name="title"/><br />
 	<input type="text" value="{{this.price}}" name="price" /><br />
 	<input type="text" value="{{this.category}}" name="category" /><br />
 	<input type="text" value="{{this.description}}" name="description" /><br />
 	<input type="text" value="{{this.quantity}}" name="quantity" /><br />
 	<input type="text" value="{{this.image}}" name="image" /><br />
-	<input type="submit" value="Update" />
+	<input type="submit" value="Edit" />
 </form>
 
 ID {{this.id}}

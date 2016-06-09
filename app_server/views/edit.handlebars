@@ -1,8 +1,22 @@
-<h1>Update a Category</h1>
+<h1>Update Category</h1>
 <form name="updateCategory">
 	<input type="text" value="{{category.id}}" name="id"/><br />
 	<input type="text" value="{{category.cat_name}}"name="cat_name"/><br />
 	<input type="text" value="{{category.description}}" name="description" /><br />
-	<input type="submit" name="submitCategory" value="Update" />
+	<input type="submit" name="submitCategory" value="Update Category" />
+	<input type="submit" name="deleteCategory" value="Delete Category" />
 </form>
+<h1>Update Product</h1>
+<form name="updateProduct">
+	<input type="text" value="{{product.id}}" name="id"/><br />
+	<input type="text" value="{{product.title}}"name="title"/><br />
+	<input type="text" value="{{product.price}}" name="price" /><br />
+	<input type="text" value="{{product.category}}" name="category" /><br />
+	<input type="text" value="{{product.description}}" name="description" /><br />
+	<input type="text" value="{{product.quantity}}" name="quantity" /><br />
+	<input type="text" value="{{product.img}}" name="img" /><br />
+	<input type="submit" name="submitProduct" value="Update Product" />
+	<input type="submit" name="deleteProduct" value="Delete Product" />
+</form>
+<a href="admin">Back to Admin</a>
 <script src="js/updateCategory.js"></script>
