@@ -1,3 +1,15 @@
+.smaller-logo {
+    max-width: 200px;
+    margin-top: -200px;
+    margin-bottom: 100px;
+}
+
+
+input {
+    outline: 0;
+    text-decoration: none;
+}
+
 
 #drop {
     margin-top: 15px;
@@ -13,11 +25,67 @@
 
 
 
+.formNoBrdrSpacing {
+    border: 0px solid transparent;
+    margin: 0px 0px 5px 0px;
+    color: #B1E4E5;
+    background: #40474E;
+
+}
+
+/*jumbotron*/
+.form-fixed-width {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 15px;
+    background: #34393D;
+}
+
+.form-fixed-width>input {
+    color: #B1E4E5;
+    background: #40474E;
+  
+}
+
+
+.form-container {
+    padding: 0 50px;
+}
+
+.login-jumbo {
+    max-width: 500px !important;
+}
+
+
+.signup-section {
+    display: table;
+    width: 100%;
+    height: 100%;
+    padding: 100px 0;
+    text-align: center;
+    color: #363E44;
+    /*background: url(../img/moss-bg.jpg) no-repeat bottom center scroll;*/
+    background-color: #272B2F;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+
+
+.signup-section .signup-body{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
 
 
 
 /*------------------------------------*/
 
+/*checkout number*/
 #chkNum {
     color: #50ADA7;
 }
@@ -51,6 +119,9 @@
     font-weight: 100;
 }
 
+.light-text {
+    color: #B1E4E5;
+}
 
 
 .larg-text {
@@ -63,6 +134,20 @@
     min-height: 70px;
     background: #50606c;
 
+}
+
+
+.bar {
+    padding: 40px 40px 5px 40px;
+    min-height: 70px;
+    background: #50606c;
+
+}
+
+.bar-bottom {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
 }
 
 #img-combo {
@@ -123,7 +208,7 @@ a {
 a:hover,
 a:focus {
     text-decoration: none;
-    color: #94BEBF;
+    color: #B5E9EB;
 }
 
 .light {
@@ -149,7 +234,7 @@ a:focus {
 .navbar-custom .navbar-brand .navbar-toggle {
     padding: 4px 6px;
     font-size: 16px;
-    color: #EDEDED;
+    color: #F8F8F8;
 }
 
 .navbar-custom .navbar-brand .navbar-toggle:focus,
@@ -158,7 +243,7 @@ a:focus {
 }
 
 .navbar-custom a {
-    color: #EEEEEE;
+    color: #F8F8F8;
 }
 
 .navbar-custom .nav li a {
@@ -192,7 +277,7 @@ a:focus {
 }
 
 .nv.top-nav-collapse {
-    color: #CACACA !important;
+    color: #EFEFEF !important;
 }
 
 
@@ -218,7 +303,7 @@ a:focus {
 
     }
     .navbar-custom a {
-        color: #50606c;
+        color: #8DA9BF;
     }
 }
 
@@ -230,12 +315,14 @@ a:focus {
     text-align: center;
     color: #D8D8D8;
     background: url(../img/lavender.jpg) no-repeat bottom center scroll;
-    background-color: #363E44;
+    background-color: #272B2F;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
 }
+
+
 
 .intro .intro-body {
     display: table-cell;
@@ -283,7 +370,7 @@ a:focus {
 .btn-circle:hover,
 .btn-circle:focus {
     outline: 0;
-    color: #B9BDC0;
+    color: #DCE1E4;
     background: rgba(255,255,255,.1);
 }
 
@@ -415,7 +502,7 @@ a:focus {
 .btn-default:focus {
     border: 1px solid #94BEBF;
     outline: 0;
-    color: #B7B7B7;
+    color: #E7E7E7;
     background-color: #94BEBF;
 }
 

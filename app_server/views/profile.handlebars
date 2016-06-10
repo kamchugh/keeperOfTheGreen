@@ -1,9 +1,113 @@
+
+
+
+
+
+
+ <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+
+
+                {{#if user}}
+                    Logged in as: {{user.fname}} {{user.lname}} 
+                {{else}}
+                    Logged in as: Guest
+                {{/if}} 
+                   
+
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                 	  <li>
+                       
+                        <a href ="/"> Home</a>
+                    </li>
+                   
+                    <li>
+                       
+                        <a href ="viewProducts"> Shop</a>
+                    </li>
+
+                  
+
+                {{#if user}}
+                  
+
+                    <li>
+                    <a href="profile">Profile</a>
+                    </li>
+
+                      <li>
+                    <a href="/logout">Log Out</a>
+                   </li>
+
+                {{else}}
+                    <li>
+                    <a href="login">Log In</a> 
+                    </li>
+                    <li>
+                     <a href="signup">Sign Up</a> 
+                     </li>
+                {{/if}}
+                    <li id="drop">
+					<span class="dropdown" >
+					  <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					   	More
+					    <span class="caret"></span>
+					  </a>
+					  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					    <li>
+                        <a class="page-scroll nv" href="/">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll nv" href="#contact">Contact</a>
+                    </li>
+
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!-- end navigation -->
+
+
+
+<header class="signup-section">
+<div class="signup-body">
+
+
+
+<img class="smaller-logo" src="./img/main-logo.png"/>
+
+
+
+
+
+
+<!--
 <h1>Profile</h1>
 <form  name="updateUser">
 	<input type="text" id="user_id" value="{{user.user_id}}"name="id"/><br />
 	<input type="text" value="{{user.fname}}"name="fname"/><br />
 	<input type="text" value="{{user.lname}}" name="lname" /><br />
+
 	<input type="text" value="{{user.address}}" name="address" /><br />
+
 	<input type="text" value="{{user.city}}" name="city" /><br />
 	<input type="text" value="{{user.state}}" name="state" /><br />
 	<input type="text" value="{{user.zip}}" name="zip" /><br />
@@ -13,4 +117,115 @@
 	<input type="submit" name="submit" value="Update" />
 
 </form>
+-->
+
+
+
+
+
+
+
+
+<div class="jumbotron form-fixed-width glass">
+    <form name="updateUser">
+        <div class="row">
+        <div class="col-xs-12">
+        	<h2 class="light-text text-center">Edit Profile</h2>
+        </div>
+
+            <div class="col-xs-12 form-container">
+
+                <div class="col-xs-12 col-md-6">
+                   <div class="input text-center">
+                        <input type="text" id="user_id" value="{{user.user_id}}"name="id" class="form-control formNoBrdrSpacing">
+                    </div>
+                </div>
+                
+
+                <div class="col-xs-12 col-md-6">
+                    <div class="input">
+                        <input type="text" value="{{user.fname}}"name="fname" class="form-control formNoBrdrSpacing">
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-6">
+                    <div class="input">
+                        <input type="text" value="{{user.lname}}" name="lname" class="form-control formNoBrdrSpacing">
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-md-6">
+                    <div class="input">
+                        <input type="text" value="{{user.address}}" name="address" class="form-control formNoBrdrSpacing">
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-md-6">
+                    <div class="input">
+                       	<input type="text" value="{{user.city}}" name="city" class="form-control formNoBrdrSpacing">
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-md-6">
+                    <div class="input">
+                        <input type="text" value="{{user.state}}" name="state" class="form-control formNoBrdrSpacing">
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-md-6">
+                    <div class="input">
+                        <input  type="text" value="{{user.zip}}" name="zip" class="form-control formNoBrdrSpacing">
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-md-6">
+                    <div class="input">
+                        <input type="text" value="{{user.phone}}" name="phone" class="form-control formNoBrdrSpacing">
+                    </div>
+                </div>
+                
+                <div class="col-xs-12 col-md-6">
+                    <div class="input">
+                        <input type="text" value="{{user.email}}" name="email" class="form-control formNoBrdrSpacing" >
+                    </div>
+                </div>
+               
+            
+            	   <div class="col-xs-12 col-md-6">
+                    <div class="input">
+                        <input type="password" placeholder="Enter Password" name="password"  class="form-control formNoBrdrSpacing ">
+                    </div>
+                </div>
+                
+
+              
+                
+                <div class="col-xs-12 text-center">
+                <br>
+                <br>
+                    <input type="submit" name="submit" value="Update"  class="btn btn-default floatR ">
+                </div>
+               
+
+
+
+            </div>
+        </div>  <!-- end first "class row"-->
+
+    </form>
+</div>
+
+</div>
+
+
+
+</header>
+
+
+
+
 <script src="js/updateUser.js"></script>
+
+
+
+

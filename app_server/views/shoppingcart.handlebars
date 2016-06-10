@@ -1,35 +1,199 @@
-<h1>Shopping Cart</h1>
+
+
 
 <br>
 <br>
 <br>
 
-{{#each products}}
-<h4>Item:</h4>
-PRODUCT ID:  {{this.id}}<br>
 
-TITLE: {{this.title}}<br>
-
-CATEGORY:  {{this.category}}<br>
-
-DESCRIPTION:  {{this.description}}<br>
-
-
-QUANTITY:  {{this.dataValues.Item.dataValues.item_quantity}}<br>
-
-
-PRICE: ${{this.price}}
 
 <br>
 <br>
 
-<a href = "/viewProducts/removeItem/{{this.id}}"> Remove One {{this.title}} || </a>
-<a href = "/viewProducts/addExtraItem/{{this.id}}"> Add One {{this.title}} </a>
 
-{{/each}}
+
+
+
+
+  <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+
+
+                {{#if user}}
+                    Logged in as: {{user.fname}} {{user.lname}}
+                {{else}}
+                    Logged in as: Guest
+
+                {{/if}}
+                <br>
+                {{#if guest}}
+                Please create an account to place an order.
+                {{/if}}
+
+
+
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+
+                     <li>
+                    <a href="profile">Custom Order</a>
+                    </li>
+                   
+                     <li>
+                    <a href="viewProducts">shop</a>
+                    </li>
+                   
+                    {{#unless guest}}
+
+                        <li>
+                    <a href="/viewProducts/checkout"> Cart <span id="chkNum">({{total}})</span></a>
+                        </li>
+                    {{/unless}}
+
+
+                 {{#if user}}
+                    <li>
+                    <a href="profile">Profile</a>
+                    </li>
+
+                      <li>
+                    <a href="/logout">Log Out</a>
+                   </li>
+                {{else}}
+                    <li>
+                    <a href="login">Log In</a>
+                    </li>
+                    <li>
+                     <a href="signup">Sign Up</a>
+                     </li>
+                {{/if}}
+
+
+
+
+                    <li id="drop">
+					<span class="dropdown" >
+					  <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					   	More
+					    <span class="caret"></span>
+					  </a>
+					  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+					    <li>
+                        <a class="page-scroll nv" href="/">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll nv" href="#contact">Contact</a>
+                    </li>
+
+
+					  </ul>
+					</span>
+
+					</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="container">
+
+            <div class="row">
+
+
+
+                <div class="col-md-12">
+
+
+                    <br>
+                    <br>
+                    <div class="row">
+
+       {{#each products}}
+
+
+            
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+                        <img src="./img/{{this.img}}.png" alt=""/>
+                        <div class="caption">
+                            <h4 class="pull-right">${{this.price}}</h4>
+                            <h4><a href="#">{{this.title}} </a></h4>
+                            <i>Category: {{this.category}}</i>
+                            <p>{{this.description}}</p>
+                            QUANTITY:  {{this.dataValues.Item.dataValues.item_quantity}}
+                            
+                            <a href = "/viewProducts/removeItem/{{this.id}}" class="btn btn-default btn">Remove One</a>
+                             <a href = "/viewProducts/addExtraItem/{{this.id}}" class="btn btn-default btn">Add One</a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+        {{/each}}
+  
+
+
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
 
 
 <h4>Total cost of all items : ${{total}}</h4>
@@ -53,3 +217,24 @@ PRICE: ${{this.price}}
 	<input type="text" placeholder="{{user.user_id}}"name="id"/><br/>
 	<input type="submit" value="Update" />
 </form>
+
+
+
+
+
+
+
+        </div>
+        <!-- /.container -->
+
+        <br>
+        <br>
+        <br>
+
+        <br>
+        <br>
+        <br>
+        
+        <br>
+        <br>
+        <br>
