@@ -37,3 +37,7 @@ module.exports.register = function(req,res) {
 			});
 	});
 };
+module.exports.request = function(req,res) {
+	res.render('/requestProduct');
+	console.log("In signup controller");
+};

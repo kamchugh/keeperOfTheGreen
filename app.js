@@ -88,6 +88,7 @@ app.use('/', require('./app_server/routes/editRoutes'));
 app.use('/signup', require('./app_server/routes/signupRoutes'));
 app.use('/deleteCategory', require('./app_api/routes/productRoutes'));
 app.use('/', require('./app_api/routes/productRoutes'));
+app.use('/requestProduct', require('./app_server/routes/productRoutes'));
 
 //SQLIZE SYNC WITH PORT
 models.sequelize.sync()

@@ -1,14 +1,14 @@
 <h1>Profile</h1>
 <form  name="updateUser">
-	<input type="text" id="user_id" value="{{user.user_id}}"name="id"/><br />
-	<input type="text" value="{{user.fname}}"name="fname"/><br />
-	<input type="text" value="{{user.lname}}" name="lname" /><br />
-	<input type="text" value="{{user.address}}" name="address" /><br />
-	<input type="text" value="{{user.city}}" name="city" /><br />
-	<input type="text" value="{{user.state}}" name="state" /><br />
-	<input type="text" value="{{user.zip}}" name="zip" /><br />
-	<input type="text" value="{{user.phone}}" name="phone" /><br />
-	<input type="text" value="{{user.email}}" name="email" /><br />
+	<input type="hidden" id="user_id" value="{{user.user_id}}" required name="id"/><br />
+	<input type="text" value="{{user.fname}}"required name="fname"/><br />
+	<input type="text" value="{{user.lname}}" required name="lname" /><br />
+	<input type="text" value="{{user.address}}" required name="address" /><br />
+	<input type="text" value="{{user.city}}" required name="city" /><br />
+	<input type="text" value="{{user.state}}" required name="state" /><br />
+	<input type="text" value="{{user.zip}}" required name="zip" /><br />
+	<input type="text" value="{{user.phone}}" required name="phone" /><br />
+	<input type="text" value="{{user.email}}" required name="email" /><br />
   <input type="password" placeholder="Enter Password" name="password" /><br />
 	<input type="submit" name="submit" value="Update" />
 
